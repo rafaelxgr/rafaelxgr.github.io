@@ -279,6 +279,46 @@
         padding: 18px 16px 55px;
       }
     }
+    .whatsapp-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-3px) scale(1.06);
+  filter: brightness(1.08);
+}
+
+.whatsapp-float svg {
+  width: 52px;
+  height: 52px;
+  fill: #25d366;
+  filter:
+    drop-shadow(0 0 6px rgba(37, 211, 102, 0.35))
+    drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+@media (max-width: 600px) {
+  .whatsapp-float {
+    width: 58px;
+    height: 58px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .whatsapp-float svg {
+    width: 46px;
+    height: 46px;
+  }
+}
   </style>
 </head>
 <body>
@@ -361,5 +401,17 @@
   <footer>
     &copy; 2023-2026 Grupo XGR. Todos os direitos reservados.
   </footer>
+  <a
+  class="whatsapp-float"
+  href="https://wa.me/5511912131177?text=Olá%2C%20vim%20pelo%20site%20da%20XGR%20e%20quero%20falar%20sobre%20um%20projeto."
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Falar no WhatsApp"
+  title="Falar no WhatsApp"
+>
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M19.11 17.23c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.29-1.39-.85-.76-1.42-1.69-1.59-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.13-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.95 2.43.05 1.43 1.02 2.81 1.16 3 .14.19 2 3.05 4.85 4.27.68.29 1.2.46 1.61.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.03 4.5c-6.34 0-11.48 5.12-11.48 11.43 0 2.02.53 3.99 1.53 5.71L4.5 27.5l5.99-1.56a11.5 11.5 0 0 0 5.54 1.42h.01c6.33 0 11.47-5.12 11.47-11.43 0-3.06-1.19-5.93-3.35-8.09A11.4 11.4 0 0 0 16.03 4.5zm0 20.93h-.01a9.54 9.54 0 0 1-4.86-1.33l-.35-.21-3.55.93.95-3.46-.23-.36a9.47 9.47 0 0 1-1.47-5.06c0-5.24 4.29-9.5 9.55-9.5 2.55 0 4.94.99 6.74 2.78a9.41 9.41 0 0 1 2.8 6.72c0 5.24-4.29 9.49-9.56 9.49z"/>
+  </svg>
+</a>
 </body>
 </html>
