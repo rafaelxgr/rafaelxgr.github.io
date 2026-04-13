@@ -237,13 +237,14 @@
     }
 
     .whatsapp-float svg {
-      width: 52px;
-      height: 52px;
-      fill: #25d366;
-      filter:
-        drop-shadow(0 0 6px rgba(37, 211, 102, 0.35))
-        drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
-    }
+  width: 52px;
+  height: 52px;
+  fill: #25d366;
+  transform: translate(1px, 1px);
+  filter:
+    drop-shadow(0 0 6px rgba(37, 211, 102, 0.35))
+    drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
 
     @media (max-width: 860px) {
       .cards {
@@ -297,12 +298,11 @@
         padding: 18px 16px 55px;
       }
 
-      .whatsapp-float {
-        width: 58px;
-        height: 58px;
-        right: 14px;
-        bottom: 14px;
-      }
+     .whatsapp-float svg {
+  width: 46px;
+  height: 46px;
+  transform: translate(1px, 1px);
+}
 
       .whatsapp-float svg {
         width: 46px;
