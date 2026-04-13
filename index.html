@@ -2,95 +2,272 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grupo XGR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XGR | Estrutura Digital, Automação e BI</title>
+  <meta
+    name="description"
+    content="A XGR reúne estrutura digital, automação e inteligência operacional para negócios que precisam evoluir com mais clareza, eficiência e controle."
+  />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('bg-xgr.jpg') no-repeat center center fixed;
+      color: #ffffff;
+      background:
+        linear-gradient(rgba(5, 8, 20, 0.82), rgba(5, 8, 20, 0.9)),
+        url('bg-xgr.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
     }
 
-    /* Título XGR */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .top-header {
-      font-size: 2.8rem;
       text-align: center;
-      font-weight: bold;
-      padding: 20px 0 10px;
-      background: linear-gradient(to right, #ffd700, #c9a203, #fff8dc);
+      font-size: 2.8rem;
+      font-weight: 700;
+      padding: 28px 20px 16px;
+      background: linear-gradient(to right, #f5d76e, #c9a227, #fff4c2);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 1px 1px 2px #000, 0 0 10px rgba(255, 215, 0, 0.3);
+      text-shadow: 0 0 18px rgba(201, 162, 39, 0.18);
     }
 
-    /* Menu fixo */
     .navbar {
-      position: fixed;
-      top: 80px;
+      position: sticky;
+      top: 0;
       width: 100%;
-      background-color: #111;
-      padding: 10px 0;
+      background: rgba(10, 10, 14, 0.92);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 20px;
       text-align: center;
       z-index: 999;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
     }
 
     .navbar a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-      transition: color 0.3s;
+      display: inline-block;
+      margin: 0 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #f1f1f1;
+      transition: color 0.25s ease, opacity 0.25s ease;
     }
 
     .navbar a:hover {
-      color: #ffd700;
+      color: #f5d76e;
     }
 
-    /* Conteúdo Central */
-    .content {
-      margin-top: 160px;
-      padding: 20px;
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 20px 40px;
       text-align: center;
     }
 
-    .main-message {
+    .hero-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 42px 28px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: 2.8rem;
+      line-height: 1.15;
+      color: #ffffff;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 850px;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: #d6d9e0;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
       display: inline-block;
-      background-color: rgba(255, 255, 255, 0.05);
-      padding: 20px;
+      padding: 13px 22px;
       border-radius: 10px;
-      font-size: 1.2rem;
-      max-width: 90%;
-      margin: auto;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: 0.25s ease;
     }
 
-    /* Rodapé fixo */
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #111;
+    .btn-primary {
+      background: linear-gradient(to right, #d4af37, #f5d76e);
+      color: #111111;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(245, 215, 110, 0.4);
+      color: #f5d76e;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 70px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin: 0 0 14px;
+      color: #ffffff;
       text-align: center;
-      padding: 10px;
-      font-size: 0.9rem;
-      color: #888;
     }
 
-    /* Responsivo */
+    .section-subtitle {
+      max-width: 800px;
+      margin: 0 auto 34px;
+      text-align: center;
+      color: #cfd3db;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      color: #f5d76e;
+    }
+
+    .card p {
+      margin: 0 0 18px;
+      line-height: 1.7;
+      color: #d9dde5;
+      font-size: 0.98rem;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #ffffff;
+      line-height: 1.8;
+    }
+
+    .highlight-box {
+      margin-top: 26px;
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 4px solid #d4af37;
+      border-radius: 12px;
+      padding: 22px 20px;
+      color: #dfe3ea;
+      line-height: 1.75;
+    }
+
+    .cta {
+      text-align: center;
+      padding-top: 8px;
+    }
+
+    footer {
+      margin-top: 10px;
+      background: rgba(8, 8, 12, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      padding: 18px 20px;
+      font-size: 0.92rem;
+      color: #9ca3af;
+    }
+
+    @media (max-width: 860px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.15rem;
+      }
+
+      .top-header {
+        font-size: 2.2rem;
+      }
+    }
+
     @media (max-width: 600px) {
       .top-header {
-        font-size: 2rem;
+        font-size: 1.9rem;
+        padding: 22px 16px 12px;
+      }
+
+      .navbar {
+        padding: 12px 10px;
       }
 
       .navbar a {
-        margin: 0 10px;
-        font-size: 0.9rem;
+        margin: 6px 8px;
+        font-size: 0.88rem;
       }
 
-      .main-message {
-        font-size: 1rem;
+      .hero {
+        padding: 56px 16px 28px;
+      }
+
+      .hero-box {
+        padding: 30px 18px;
+      }
+
+      .hero h1 {
+        font-size: 1.85rem;
+      }
+
+      .hero p,
+      .section-subtitle,
+      .card p,
+      .highlight-box {
+        font-size: 0.96rem;
+      }
+
+      .section {
+        padding: 18px 16px 55px;
       }
     }
   </style>
@@ -98,23 +275,88 @@
 <body>
   <div class="top-header">Grupo XGR</div>
 
-  <div class="navbar">
+  <nav class="navbar">
     <a href="index.html">Início</a>
     <a href="projetos.html">Projetos</a>
-    <a href="automacao.html">Automação</a>
-    <a href="ia.html">IA</a>
+    <a href="automacao.html">Automação & BI</a>
     <a href="contato.html">Contato</a>
     <a href="sobre.html">Sobre</a>
-  </div>
+  </nav>
 
-  <div class="content">
-    <div class="main-message">
-      Este espaço está sendo desenvolvido para reunir conteúdos sobre automações, inteligência artificial e estratégias digitais para liberdade e prosperidade. Acompanhe os avanços e novos lançamentos.
-    </div>
-  </div>
+  <main>
+    <section class="hero">
+      <div class="hero-box">
+        <h1>Estrutura digital, automação e inteligência operacional para negócios que precisam evoluir de verdade.</h1>
+        <p>
+          A XGR reúne frentes voltadas à construção de presença digital, organização operacional,
+          automação de processos e visão gerencial. Mais do que presença, entregamos base.
+          Mais do que tecnologia, direção prática.
+        </p>
+
+        <div class="hero-actions">
+          <a href="contato.html" class="btn btn-primary">Entrar em contato</a>
+          <a href="sobre.html" class="btn btn-secondary">Conhecer a XGR</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Frentes principais</h2>
+      <p class="section-subtitle">
+        O grupo começa com duas bases claras: estrutura digital para presença sólida e automação com BI para operação mais eficiente.
+        Sem espuma, sem enfeite, sem prometer revolução de PowerPoint.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>XGR Digital</h3>
+          <p>
+            Frente voltada à criação, implantação e organização de presença digital para negócios
+            que precisam sair do improviso e ganhar estrutura.
+          </p>
+          <ul>
+            <li>Sites institucionais e landing pages</li>
+            <li>E-commerce e estrutura comercial digital</li>
+            <li>Domínio, DNS e e-mail profissional</li>
+            <li>Organização técnica e implantação</li>
+            <li>Ajustes, evolução e suporte operacional</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>XGR Automação & BI</h3>
+          <p>
+            Frente dedicada à inteligência operacional, automação de rotinas e visualização de dados
+            para reduzir retrabalho e melhorar decisões.
+          </p>
+          <ul>
+            <li>Dashboards e relatórios em Power BI</li>
+            <li>Automação de processos e fluxos internos</li>
+            <li>Integração entre rotinas e sistemas</li>
+            <li>Redução de tarefas manuais</li>
+            <li>Organização e leitura operacional do negócio</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="highlight-box">
+        A proposta da XGR é simples: transformar conhecimento técnico em estrutura, processo e solução útil.
+        O grupo está sendo construído com base prática, foco em execução e expansão inteligente.
+      </div>
+    </section>
+
+    <section class="section cta">
+      <h2 class="section-title">Base antes de expansão</h2>
+      <p class="section-subtitle">
+        O caminho agora é consolidar operação, organizar frentes e publicar soluções reais.
+        Crescimento sério começa com estrutura. O resto é espuma de internet.
+      </p>
+      <a href="projetos.html" class="btn btn-primary">Ver projetos e frentes</a>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Grupo XGR. Todos os direitos reservados.
+    &copy; 2026 Grupo XGR. Todos os direitos reservados.
   </footer>
 </body>
 </html>
