@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre | Grupo XGR</title>
+  <title>Contato | Grupo XGR</title>
   <meta
     name="description"
-    content="Conheça a proposta da XGR e sua atuação em estrutura digital, automação, BI e soluções práticas para negócios."
+    content="Entre em contato com a XGR para projetos de estrutura digital, sites, e-commerce, automação de processos e BI."
   />
   <style>
     * {
@@ -23,7 +23,7 @@
       color: #ffffff;
       background:
         linear-gradient(rgba(5, 8, 20, 0.82), rgba(5, 8, 20, 0.9)),
-        url('sobre.jpg') no-repeat center center fixed;
+        url('contato.jpg') no-repeat center center fixed;
       background-size: cover;
     }
 
@@ -136,7 +136,7 @@
     }
 
     .card h3 {
-      margin: 0 0 14px;
+      margin: 0 0 16px;
       font-size: 1.35rem;
       color: #f5d76e;
     }
@@ -148,11 +148,62 @@
       font-size: 0.98rem;
     }
 
-    .card ul {
-      margin: 0;
-      padding-left: 18px;
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       color: #ffffff;
-      line-height: 1.8;
+      transition: 0.25s ease;
+      line-height: 1.5;
+    }
+
+    .contact-item:hover {
+      border-color: rgba(245, 215, 110, 0.4);
+      color: #f5d76e;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.82rem;
+      color: #bfc6d1;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-value {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .button-wrap {
+      margin-top: 20px;
+    }
+
+    .btn-whatsapp {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: linear-gradient(to right, #d4af37, #f5d76e);
+      color: #111111;
+      transition: 0.25s ease;
+    }
+
+    .btn-whatsapp:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
     }
 
     .highlight-box {
@@ -244,62 +295,71 @@
   <main>
     <section class="hero">
       <div class="hero-box">
-        <h1>Sobre a XGR</h1>
+        <h1>Contato</h1>
         <p>
-          A XGR é um grupo em construção prática, criado para desenvolver estrutura digital,
-          automação de processos, inteligência operacional e soluções voltadas à evolução real de negócios.
+          Entre em contato para projetos de estrutura digital, sites, e-commerce, automação de processos,
+          dashboards e soluções voltadas à organização operacional de negócios.
         </p>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-title">Proposta do grupo</h2>
+      <h2 class="section-title">Canais de contato</h2>
       <p class="section-subtitle">
-        A proposta da XGR é transformar capacidade técnica em estrutura, processo e solução útil.
-        Sem discurso inflado, sem dependência de improviso e sem tecnologia usada só para parecer moderna.
+        A XGR está organizada para atendimento direto, objetivo e sem ruído. Escolha o canal mais prático e seguimos daí.
       </p>
 
       <div class="cards">
         <article class="card">
-          <h3>Base prática</h3>
+          <h3>XGR Digital</h3>
           <p>
-            O grupo nasce com foco em execução. Cada frente precisa existir para resolver problema real,
-            melhorar operação e construir valor de forma consistente.
+            Frente voltada à estrutura digital, sites, e-commerce, implantação técnica e organização da presença online.
           </p>
-          <ul>
-            <li>Estrutura digital com direção</li>
-            <li>Organização técnica confiável</li>
-            <li>Soluções aplicadas ao negócio</li>
-            <li>Foco em clareza e eficiência</li>
-            <li>Crescimento sustentado por entrega</li>
-          </ul>
+
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:rafael@xgreat.com.br">
+              <span class="contact-label">E-mail</span>
+              <span class="contact-value">rafael@xgreat.com.br</span>
+            </a>
+          </div>
+
+          <div class="button-wrap">
+            <a
+              class="btn-whatsapp"
+              href="https://wa.me/5511912131177"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
         </article>
 
         <article class="card">
-          <h3>Construção inteligente</h3>
+          <h3>XGR Automação & BI</h3>
           <p>
-            A expansão da XGR será feita por etapas. Primeiro consolida a base, depois amplia frentes,
-            portfólio e capacidade de atuação com critério.
+            Frente dedicada à automação de processos, integração operacional, dashboards e BI para organização e leitura gerencial do negócio.
           </p>
-          <ul>
-            <li>Sem expansão vazia</li>
-            <li>Sem promessas que não podem ser entregues</li>
-            <li>Sem serviço inventado por empolgação</li>
-            <li>Mais função, menos enfeite</li>
-            <li>Visão de longo prazo com execução real</li>
-          </ul>
+
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:daniel.lima@xgreat.com.br">
+              <span class="contact-label">E-mail</span>
+              <span class="contact-value">daniel.lima@xgreat.com.br</span>
+            </a>
+          </div>
         </article>
       </div>
 
       <div class="highlight-box">
-        Hoje, a XGR se organiza principalmente em duas frentes: estrutura digital e automação com BI.
-        Novos braços poderão surgir conforme houver clareza de oferta, capacidade de entrega e utilidade comercial real.
+        Contato institucional do grupo: <strong>xgreat@xgreat.com.br</strong><br />
+        Contato direto da XGR Digital: <strong>rafael@xgreat.com.br</strong><br />
+        Contato direto da XGR Automação & BI: <strong>daniel.lima@xgreat.com.br</strong>
       </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2026 Grupo XGR. Todos os direitos reservados.
+    &copy; 2023-2026 Grupo XGR. Todos os direitos reservados.
   </footer>
 </body>
 </html>
