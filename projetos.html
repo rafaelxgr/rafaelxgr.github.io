@@ -2,42 +2,36 @@
 <html lang="pt-BR">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMDZW6X0LS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMDZW6X0LS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-ZMDZW6X0LS');
-</script>
+    gtag('config', 'G-ZMDZW6X0LS');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Projetos | XGR Digital</title>
-<meta
-  name="description"
-  content="Conheça os projetos e frentes da XGR Digital em sites, automação, e-commerce e estrutura digital para negócios."
-/>
-<link rel="canonical" href="https://xgreat.com.br/projetos.html" />
-<meta name="robots" content="index, follow" />
+  <title>Projetos | XGreat</title>
+  <meta name="description" content="Veja os projetos da XGreat, com cases publicados, implantações em andamento e próximos trabalhos das frentes XGR Digital e XGR Automação & BI." />
+  <link rel="canonical" href="https://xgreat.com.br/projetos.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:site_name" content="XGreat" />
+  <meta property="og:title" content="Projetos | XGreat" />
+  <meta property="og:description" content="Veja os projetos da XGreat, com cases publicados, implantações em andamento e próximos trabalhos das frentes XGR Digital e XGR Automação & BI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://xgreat.com.br/projetos.html" />
+  <meta property="og:image" content="https://xgreat.com.br/logo-xgr.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projetos | XGreat" />
+  <meta name="twitter:description" content="Veja os projetos da XGreat, com cases publicados, implantações em andamento e próximos trabalhos das frentes XGR Digital e XGR Automação & BI." />
+  <meta name="twitter:image" content="https://xgreat.com.br/logo-xgr.jpg" />
+  <meta name="theme-color" content="#050814" />
 
-<meta property="og:title" content="Projetos | XGR Digital" />
-<meta
-  property="og:description"
-  content="Conheça os projetos e frentes da XGR Digital em sites, automação, e-commerce e estrutura digital para negócios."
-/>
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://xgreat.com.br/projetos.html" />
-<meta property="og:image" content="https://xgreat.com.br/logo-xgr.jpg" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Projetos | XGR Digital" />
-<meta
-  name="twitter:description"
-  content="Conheça os projetos e frentes da XGR Digital em sites, automação, e-commerce e estrutura digital para negócios."
-/>
-<meta name="twitter:image" content="https://xgreat.com.br/logo-xgr.jpg" />
   <link rel="icon" type="image/png" href="favicon.png?v=1">
-<link rel="apple-touch-icon" href="favicon.png?v=1">
+  <link rel="apple-touch-icon" href="favicon.png?v=1">
+
   <style>
     * {
       box-sizing: border-box;
@@ -45,16 +39,20 @@
 
     html {
       scroll-behavior: smooth;
+      background: #050814;
     }
 
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: Arial, sans-serif;
       color: #ffffff;
       background:
         linear-gradient(rgba(5, 8, 20, 0.82), rgba(5, 8, 20, 0.9)),
         url('projetos.jpg') no-repeat center center fixed;
       background-size: cover;
+      background-color: #050814;
+      overflow-x: hidden;
     }
 
     a {
@@ -92,10 +90,11 @@
       font-size: 0.95rem;
       font-weight: 700;
       color: #f1f1f1;
-      transition: color 0.25s ease;
+      transition: color 0.25s ease, opacity 0.25s ease;
     }
 
-    .navbar a:hover {
+    .navbar a:hover,
+    .navbar a.active {
       color: #f5d76e;
     }
 
@@ -123,7 +122,7 @@
 
     .hero p {
       margin: 0 auto;
-      max-width: 850px;
+      max-width: 860px;
       font-size: 1.08rem;
       line-height: 1.75;
       color: #d6d9e0;
@@ -181,7 +180,7 @@
     }
 
     .section-subtitle {
-      max-width: 820px;
+      max-width: 840px;
       margin: 0 auto 34px;
       text-align: center;
       color: #cfd3db;
@@ -223,6 +222,19 @@
       line-height: 1.8;
     }
 
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: #e5d28a;
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
     .highlight-box {
       margin-top: 26px;
       background: rgba(255, 255, 255, 0.04);
@@ -233,14 +245,106 @@
       line-height: 1.75;
     }
 
-    footer {
-      margin-top: 10px;
-      background: rgba(8, 8, 12, 0.95);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    .cta {
       text-align: center;
-      padding: 18px 20px;
-      font-size: 0.92rem;
-      color: #9ca3af;
+      padding-top: 8px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      transition: 0.25s ease;
+      line-height: 1.5;
+    }
+
+    .contact-item:hover {
+      border-color: rgba(245, 215, 110, 0.4);
+      color: #f5d76e;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.82rem;
+      color: #bfc6d1;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-value {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .button-wrap {
+      margin-top: 20px;
+    }
+
+    .btn-whatsapp {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: linear-gradient(to right, #d4af37, #f5d76e);
+      color: #111111;
+      transition: 0.25s ease;
+    }
+
+    .btn-whatsapp:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .case-status {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(245, 215, 110, 0.12);
+      color: #f5d76e;
+      border: 1px solid rgba(245, 215, 110, 0.22);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+      transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.06);
+      filter: brightness(1.08);
+    }
+
+    .whatsapp-float svg {
+      width: 52px;
+      height: 52px;
+      fill: #25d366;
+      filter:
+        drop-shadow(0 0 6px rgba(37, 211, 102, 0.35))
+        drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
     }
 
     @media (max-width: 860px) {
@@ -294,154 +398,121 @@
       .section {
         padding: 18px 16px 55px;
       }
+
+      .whatsapp-float {
+        width: 58px;
+        height: 58px;
+        right: 14px;
+        bottom: 14px;
+      }
+
+      .whatsapp-float svg {
+        width: 46px;
+        height: 46px;
+      }
     }
-    .whatsapp-float {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1200;
-  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
-}
-
-.whatsapp-float:hover {
-  transform: translateY(-3px) scale(1.06);
-  filter: brightness(1.08);
-}
-
-.whatsapp-float svg {
-  width: 52px;
-  height: 52px;
-  fill: #25d366;
-  filter:
-    drop-shadow(0 0 6px rgba(37, 211, 102, 0.35))
-    drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
-}
-
-@media (max-width: 600px) {
-  .whatsapp-float {
-    width: 58px;
-    height: 58px;
-    right: 14px;
-    bottom: 14px;
-  }
-
-  .whatsapp-float svg {
-    width: 46px;
-    height: 46px;
-  }
-}
   </style>
 </head>
 <body>
-  <div class="top-header">Grupo XGR</div>
+  <div class="top-header">XGreat</div>
 
   <nav class="navbar">
     <a href="index.html">Início</a>
-    <a href="projetos.html">Projetos</a>
-    <a href="automacao.html">Automação & BI</a>
-    <a href="contato.html">Contato</a>
-    <a href="sobre.html">Sobre</a>
+        <a href="automacao.html">Soluções</a>
+        <a href="projetos.html" class="active">Projetos</a>
+        <a href="contato.html">Contato</a>
+        <a href="sobre.html">Sobre</a>
   </nav>
 
   <main>
     <section class="hero">
       <div class="hero-box">
-        <h1>Projetos e frentes da XGR</h1>
-        <p>
-          Esta página reúne as frentes em estruturação e os projetos que representam a direção prática da XGR.
-          O foco é construir base real, consolidar operação e transformar capacidade técnica em solução útil para negócios.
-        </p>
-
-        <div class="hero-actions">
-          <a href="contato.html" class="btn btn-primary">Falar com a XGR</a>
-          <a href="sobre.html" class="btn btn-secondary">Entender a proposta</a>
-        </div>
+        <h1>Projetos da XGreat</h1>
+        <p>Aqui entram os trabalhos publicados, em implantação ou em estruturação para portfólio. Soluções ficam na página de Soluções. Projetos ficam aqui. Separar isso já evita metade da confusão que costuma sair de site montado na pressa.</p>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">Frentes atuais</h2>
-      <p class="section-subtitle">
-        A XGR está sendo organizada com foco em execução. Primeiro estrutura, depois expansão. O resto é só fantasia empresarial com logo bonito.
+
+<section class="section">
+  <h2 class="section-title">Projetos publicados e em implantação</h2>
+  <p class="section-subtitle">
+    Aqui entram os cases e trabalhos reais da operação. A página de soluções explica o que a XGreat faz. Esta página mostra onde isso já está sendo aplicado.
+  </p>
+
+  <div class="cards">
+    <article class="card">
+      <span class="case-status">Publicado</span>
+      <h3>Empreenda ou Morra</h3>
+      <p>
+        Projeto ligado à presença digital e posicionamento online, usado como referência de execução e estrutura sob a frente XGR Digital.
       </p>
+      <ul>
+        <li>Presença digital</li>
+        <li>Estrutura de site</li>
+        <li>Posicionamento visual</li>
+        <li>Base para portfólio</li>
+      </ul>
+    </article>
 
-      <div class="cards">
-        <article class="card">
-          <h3>XGR Digital</h3>
-          <p>
-            Frente voltada à construção de presença digital e implantação de estrutura comercial online para negócios que precisam sair do improviso.
-          </p>
-          <ul>
-            <li>Sites institucionais e landing pages</li>
-            <li>E-commerce e estrutura comercial digital</li>
-            <li>Domínio, DNS e e-mail profissional</li>
-            <li>Organização técnica e implantação</li>
-            <li>Suporte de evolução e ajustes</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>XGR Automação & BI</h3>
-          <p>
-            Frente dedicada à automação de rotinas, integração de processos e construção de dashboards para leitura operacional e gerencial.
-          </p>
-          <ul>
-            <li>Automação de processos</li>
-            <li>Dashboards e relatórios em Power BI</li>
-            <li>Integração entre rotinas e sistemas</li>
-            <li>Redução de retrabalho</li>
-            <li>Mais clareza para decisão</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="highlight-box">
-        Novas frentes podem surgir com o crescimento da operação, mas a prioridade agora é consolidar serviço, posicionamento e entrega real.
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Direção do grupo</h2>
-      <p class="section-subtitle">
-        A proposta da XGR é crescer por competência aplicada. Cada projeto precisa ter função, gerar valor e fortalecer a base do grupo.
+    <article class="card">
+      <span class="case-status">Em implantação</span>
+      <h3>UseBCloset</h3>
+      <p>
+        Projeto de e-commerce com foco em implantação técnica, organização comercial digital, fluxo operacional e base pronta para venda.
       </p>
+      <ul>
+        <li>Loja virtual em construção</li>
+        <li>Estrutura comercial digital</li>
+        <li>Configuração operacional</li>
+        <li>Base para lançamento</li>
+      </ul>
+    </article>
+  </div>
 
-      <div class="cards">
-        <article class="card">
-          <h3>Estrutura primeiro</h3>
-          <p>
-            O objetivo inicial é consolidar presença, operação e posicionamento das frentes principais, criando um núcleo sólido para expansão futura.
-          </p>
-          <ul>
-            <li>Organização de marca</li>
-            <li>Padronização de presença digital</li>
-            <li>Base técnica confiável</li>
-            <li>Portfólio e prova de execução</li>
-            <li>Crescimento com consistência</li>
-          </ul>
-        </article>
+  <div class="highlight-box">
+    O portfólio cresce conforme a execução real avança. Nada de inventar case para parecer grande antes da hora. O mercado já tem picareta suficiente sem ajuda adicional.
+  </div>
+</section>
 
-        <article class="card">
-          <h3>Expansão com critério</h3>
-          <p>
-            Novos braços e serviços serão incorporados conforme houver clareza de oferta, capacidade de entrega e utilidade comercial real.
-          </p>
-          <ul>
-            <li>Sem expansão vazia</li>
-            <li>Sem braço inventado por empolgação</li>
-            <li>Sem prometer o que ainda não existe</li>
-            <li>Mais foco, menos dispersão</li>
-            <li>Construção estratégica de longo prazo</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+<section class="section">
+  <h2 class="section-title">Próximo case em estruturação</h2>
+  <p class="section-subtitle">
+    O braço de Automação &amp; BI também terá case próprio publicado, mas somente quando houver material real de entrega para mostrar com clareza.
+  </p>
+
+  <div class="cards">
+    <article class="card">
+      <span class="case-status">Em estruturação</span>
+      <h3>Restaurante | XGR Automação &amp; BI</h3>
+      <p>
+        Projeto previsto para representar a frente de automação e leitura operacional, com foco em processo, integração e visão gerencial.
+      </p>
+      <ul>
+        <li>Fluxos operacionais</li>
+        <li>Automação aplicada</li>
+        <li>Indicadores e leitura de dados</li>
+        <li>Case futuro com base real</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <span class="case-status">Aberto para novos projetos</span>
+      <h3>Novos clientes</h3>
+      <p>
+        Esta área está preparada para receber novos trabalhos conforme a operação for fechando projetos e publicando entregas com material consistente.
+      </p>
+      <ul>
+        <li>Entrada de novos cases</li>
+        <li>Portfólio organizado por frente</li>
+        <li>Publicação com prova de execução</li>
+        <li>Crescimento por consistência</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
   </main>
+
 
 <style>
   .xgr-site-footer {
@@ -583,9 +654,9 @@
     </div>
 
     <nav class="xgr-site-footer__links" aria-label="Links institucionais">
-      <a href="/privacidade.html">Privacidade</a>
-      <a href="/cookies.html">Cookies</a>
-      <a href="/contato.html">Contato</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="contato.html">Contato</a>
     </nav>
   </div>
 </footer>
@@ -595,7 +666,7 @@
     <div class="xgr-cookie-banner__text">
       Este site utiliza cookies e tecnologias semelhantes para funcionamento básico e medição de acesso.
       Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso dessas tecnologias conforme nossa
-      <a href="/cookies.html">Política de Cookies</a> e <a href="/privacidade.html">Política de Privacidade</a>.
+      <a href="cookies.html">Política de Cookies</a> e <a href="privacidade.html">Política de Privacidade</a>.
     </div>
 
     <div class="xgr-cookie-banner__actions">
@@ -655,17 +726,19 @@
     });
   })();
 </script>
+
+
   <a
-  class="whatsapp-float"
-  href="https://wa.me/5511912131177?text=Olá%2C%20vim%20pelo%20site%20da%20XGR%20e%20quero%20falar%20sobre%20um%20projeto."
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Falar no WhatsApp"
-  title="Falar no WhatsApp"
->
-  <svg viewBox="0 0 32 32" aria-hidden="true">
-    <path d="M19.11 17.23c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.29-1.39-.85-.76-1.42-1.69-1.59-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.13-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.95 2.43.05 1.43 1.02 2.81 1.16 3 .14.19 2 3.05 4.85 4.27.68.29 1.2.46 1.61.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.03 4.5c-6.34 0-11.48 5.12-11.48 11.43 0 2.02.53 3.99 1.53 5.71L4.5 27.5l5.99-1.56a11.5 11.5 0 0 0 5.54 1.42h.01c6.33 0 11.47-5.12 11.47-11.43 0-3.06-1.19-5.93-3.35-8.09A11.4 11.4 0 0 0 16.03 4.5zm0 20.93h-.01a9.54 9.54 0 0 1-4.86-1.33l-.35-.21-3.55.93.95-3.46-.23-.36a9.47 9.47 0 0 1-1.47-5.06c0-5.24 4.29-9.5 9.55-9.5 2.55 0 4.94.99 6.74 2.78a9.41 9.41 0 0 1 2.8 6.72c0 5.24-4.29 9.49-9.56 9.49z"/>
-  </svg>
-</a>
+    class="whatsapp-float"
+    href="https://wa.me/5511912131177?text=Olá%2C%20vim%20pelo%20site%20da%20XGreat%20e%20quero%20falar%20sobre%20um%20projeto."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar no WhatsApp"
+    title="Falar no WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.23c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.29-1.39-.85-.76-1.42-1.69-1.59-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.13-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.95 2.43.05 1.43 1.02 2.81 1.16 3 .14.19 2 3.05 4.85 4.27.68.29 1.2.46 1.61.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.03 4.5c-6.34 0-11.48 5.12-11.48 11.43 0 2.02.53 3.99 1.53 5.71L4.5 27.5l5.99-1.56a11.5 11.5 0 0 0 5.54 1.42h.01c6.33 0 11.47-5.12 11.47-11.43 0-3.06-1.19-5.93-3.35-8.09A11.4 11.4 0 0 0 16.03 4.5zm0 20.93h-.01a9.54 9.54 0 0 1-4.86-1.33l-.35-.21-3.55.93.95-3.46-.23-.36a9.47 9.47 0 0 1-1.47-5.06c0-5.24 4.29-9.5 9.55-9.5 2.55 0 4.94.99 6.74 2.78a9.41 9.41 0 0 1 2.8 6.72c0 5.24-4.29 9.49-9.56 9.49z"/>
+    </svg>
+  </a>
 </body>
 </html>
