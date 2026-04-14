@@ -442,9 +442,218 @@
     </section>
   </main>
 
-  <footer>
-    &copy; 2023-2026 XGreat | Grupo XGR. Todos os direitos reservados.
-  </footer>
+  <style>
+  .xgr-site-footer {
+    margin-top: 80px;
+    padding: 26px 20px 34px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    background: #0b0b0d;
+  }
+
+  .xgr-site-footer__inner {
+    width: min(1100px, calc(100% - 8px));
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .xgr-site-footer__brand {
+    color: rgba(255,255,255,.72);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .xgr-site-footer__links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .xgr-site-footer__links a {
+    color: rgba(255,255,255,.88);
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity .2s ease;
+  }
+
+  .xgr-site-footer__links a:hover {
+    opacity: .72;
+  }
+
+  .xgr-cookie-banner {
+    position: fixed;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
+    background: rgba(12,12,15,.96);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 24px 60px rgba(0,0,0,.35);
+    display: none;
+  }
+
+  .xgr-cookie-banner.show {
+    display: block;
+  }
+
+  .xgr-cookie-banner__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .xgr-cookie-banner__text {
+    color: rgba(255,255,255,.86);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 700px;
+  }
+
+  .xgr-cookie-banner__text a {
+    color: #8ab4ff;
+    text-decoration: none;
+  }
+
+  .xgr-cookie-banner__actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .xgr-cookie-btn {
+    appearance: none;
+    border: 1px solid rgba(255,255,255,.14);
+    background: transparent;
+    color: #fff;
+    padding: 11px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform .18s ease, opacity .18s ease, background .18s ease;
+  }
+
+  .xgr-cookie-btn:hover {
+    transform: translateY(-1px);
+    opacity: .92;
+  }
+
+  .xgr-cookie-btn.primary {
+    background: #ffffff;
+    color: #0b0b0d;
+    border-color: #ffffff;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .xgr-cookie-banner {
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      padding: 16px;
+      border-radius: 16px;
+    }
+
+    .xgr-cookie-banner__content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .xgr-site-footer__inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>
+
+<footer class="xgr-site-footer">
+  <div class="xgr-site-footer__inner">
+    <div class="xgr-site-footer__brand">
+      &copy; 2023-2026 XGreat | Grupo XGR. Todos os direitos reservados.
+    </div>
+
+    <nav class="xgr-site-footer__links" aria-label="Links institucionais">
+      <a href="/privacidade.html">Privacidade</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/contato.html">Contato</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="xgr-cookie-banner" id="xgrCookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+  <div class="xgr-cookie-banner__content">
+    <div class="xgr-cookie-banner__text">
+      Este site utiliza cookies e tecnologias semelhantes para funcionamento básico e medição de acesso.
+      Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso dessas tecnologias conforme nossa
+      <a href="/cookies.html">Política de Cookies</a> e <a href="/privacidade.html">Política de Privacidade</a>.
+    </div>
+
+    <div class="xgr-cookie-banner__actions">
+      <button class="xgr-cookie-btn" type="button" id="xgrCookieReject">Recusar</button>
+      <button class="xgr-cookie-btn primary" type="button" id="xgrCookieAccept">Aceitar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var storageKey = 'xgr_cookie_choice';
+    var banner = document.getElementById('xgrCookieBanner');
+    var acceptBtn = document.getElementById('xgrCookieAccept');
+    var rejectBtn = document.getElementById('xgrCookieReject');
+
+    if (!banner || !acceptBtn || !rejectBtn) return;
+
+    function hideBanner() {
+      banner.classList.remove('show');
+    }
+
+    function showBanner() {
+      banner.classList.add('show');
+    }
+
+    function saveChoice(value) {
+      try {
+        localStorage.setItem(storageKey, value);
+      } catch (e) {
+        console.warn('Não foi possível salvar a preferência de cookies.', e);
+      }
+    }
+
+    function getChoice() {
+      try {
+        return localStorage.getItem(storageKey);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    var choice = getChoice();
+
+    if (!choice) {
+      showBanner();
+    }
+
+    acceptBtn.addEventListener('click', function () {
+      saveChoice('accepted');
+      hideBanner();
+    });
+
+    rejectBtn.addEventListener('click', function () {
+      saveChoice('rejected');
+      hideBanner();
+    });
+  })();
+</script>
 
   <a
     class="whatsapp-float"
