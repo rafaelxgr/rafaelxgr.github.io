@@ -13,41 +13,21 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>XGreat | Grupo XGR - Estrutura Digital, Sites e Automação</title>
-  <meta
-    name="description"
-    content="A XGreat apresenta as frentes do Grupo XGR, com atuação em estrutura digital, sites, automação, BI e soluções práticas para negócios."
-  />
+  <title>XGreat | Estrutura digital, soluções e projetos</title>
+  <meta name="description" content="A XGreat reúne as frentes XGR Digital e XGR Automação & BI para entregar sites, estrutura digital, automação e leitura operacional para negócios." />
   <link rel="canonical" href="https://xgreat.com.br/" />
   <meta name="robots" content="index, follow" />
-
-  <meta property="og:title" content="XGreat | Grupo XGR - Estrutura Digital, Sites e Automação" />
-  <meta
-    property="og:description"
-    content="A XGreat apresenta as frentes do Grupo XGR, com atuação em estrutura digital, sites, automação, BI e soluções práticas para negócios."
-  />
+  <meta property="og:site_name" content="XGreat" />
+  <meta property="og:title" content="XGreat | Estrutura digital, soluções e projetos" />
+  <meta property="og:description" content="A XGreat reúne as frentes XGR Digital e XGR Automação & BI para entregar sites, estrutura digital, automação e leitura operacional para negócios." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://xgreat.com.br/" />
   <meta property="og:image" content="https://xgreat.com.br/logo-xgr.jpg" />
-
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="XGreat | Grupo XGR - Estrutura Digital, Sites e Automação" />
-  <meta
-    name="twitter:description"
-    content="A XGreat apresenta as frentes do Grupo XGR, com atuação em estrutura digital, sites, automação, BI e soluções práticas para negócios."
-  />
+  <meta name="twitter:title" content="XGreat | Estrutura digital, soluções e projetos" />
+  <meta name="twitter:description" content="A XGreat reúne as frentes XGR Digital e XGR Automação & BI para entregar sites, estrutura digital, automação e leitura operacional para negócios." />
   <meta name="twitter:image" content="https://xgreat.com.br/logo-xgr.jpg" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "XGreat",
-    "alternateName": ["Grupo XGR", "XGR Digital", "xgreat.com.br"],
-    "url": "https://xgreat.com.br/"
-  }
-  </script>
+  <meta name="theme-color" content="#050814" />
 
   <link rel="icon" type="image/png" href="favicon.png?v=1">
   <link rel="apple-touch-icon" href="favicon.png?v=1">
@@ -69,7 +49,7 @@
       color: #ffffff;
       background:
         linear-gradient(rgba(5, 8, 20, 0.82), rgba(5, 8, 20, 0.9)),
-        url('bg-xgr.jpg') no-repeat center center;
+        url('bg-xgr.jpg') no-repeat center center fixed;
       background-size: cover;
       background-color: #050814;
       overflow-x: hidden;
@@ -113,7 +93,8 @@
       transition: color 0.25s ease, opacity 0.25s ease;
     }
 
-    .navbar a:hover {
+    .navbar a:hover,
+    .navbar a.active {
       color: #f5d76e;
     }
 
@@ -134,14 +115,14 @@
 
     .hero h1 {
       margin: 0 0 18px;
-      font-size: 2.8rem;
+      font-size: 2.7rem;
       line-height: 1.15;
       color: #ffffff;
     }
 
     .hero p {
       margin: 0 auto;
-      max-width: 850px;
+      max-width: 860px;
       font-size: 1.08rem;
       line-height: 1.75;
       color: #d6d9e0;
@@ -199,7 +180,7 @@
     }
 
     .section-subtitle {
-      max-width: 800px;
+      max-width: 840px;
       margin: 0 auto 34px;
       text-align: center;
       color: #cfd3db;
@@ -241,6 +222,19 @@
       line-height: 1.8;
     }
 
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: #e5d28a;
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
     .highlight-box {
       margin-top: 26px;
       background: rgba(255, 255, 255, 0.04);
@@ -256,14 +250,74 @@
       padding-top: 8px;
     }
 
-    footer {
-      margin-top: 10px;
-      background: rgba(8, 8, 12, 0.95);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      text-align: center;
-      padding: 18px 20px;
-      font-size: 0.92rem;
-      color: #9ca3af;
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      transition: 0.25s ease;
+      line-height: 1.5;
+    }
+
+    .contact-item:hover {
+      border-color: rgba(245, 215, 110, 0.4);
+      color: #f5d76e;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.82rem;
+      color: #bfc6d1;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-value {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .button-wrap {
+      margin-top: 20px;
+    }
+
+    .btn-whatsapp {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: linear-gradient(to right, #d4af37, #f5d76e);
+      color: #111111;
+      transition: 0.25s ease;
+    }
+
+    .btn-whatsapp:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .case-status {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(245, 215, 110, 0.12);
+      color: #f5d76e;
+      border: 1px solid rgba(245, 215, 110, 0.22);
     }
 
     .whatsapp-float {
@@ -288,7 +342,6 @@
       width: 52px;
       height: 52px;
       fill: #25d366;
-      transform: translate(1px, 1px);
       filter:
         drop-shadow(0 0 6px rgba(37, 211, 102, 0.35))
         drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
@@ -346,10 +399,11 @@
         padding: 18px 16px 55px;
       }
 
-      .whatsapp-float svg {
-        width: 46px;
-        height: 46px;
-        transform: translate(1px, 1px);
+      .whatsapp-float {
+        width: 58px;
+        height: 58px;
+        right: 14px;
+        bottom: 14px;
       }
 
       .whatsapp-float svg {
@@ -363,86 +417,80 @@
   <div class="top-header">XGreat</div>
 
   <nav class="navbar">
-    <a href="index.html">Início</a>
-    <a href="projetos.html">Projetos</a>
-    <a href="automacao.html">Automação & BI</a>
-    <a href="contato.html">Contato</a>
-    <a href="sobre.html">Sobre</a>
+    <a href="index.html" class="active">Início</a>
+        <a href="automacao.html">Soluções</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="contato.html">Contato</a>
+        <a href="sobre.html">Sobre</a>
   </nav>
 
   <main>
     <section class="hero">
       <div class="hero-box">
-        <h1>XGreat | Estrutura digital, automação e inteligência operacional para negócios que precisam evoluir de verdade.</h1>
-        <p>
-          A XGreat é a marca que apresenta as frentes do Grupo XGR, reunindo atuação em presença digital,
-          organização operacional, automação de processos e visão gerencial. Mais do que presença,
-          entregamos base. Mais do que tecnologia, direção prática.
-        </p>
-
-        <div class="hero-actions">
-          <a href="contato.html" class="btn btn-primary">Entrar em contato</a>
-          <a href="sobre.html" class="btn btn-secondary">Conhecer a estrutura</a>
-        </div>
+        <h1>XGreat | Estrutura digital, automação e leitura operacional com base real.</h1>
+        <p>A XGreat é a marca principal do site e apresenta as frentes do Grupo XGR. Hoje a operação está organizada em duas bases claras: XGR Digital e XGR Automação & BI. Cada uma com função definida, sem confundir marca, serviço e portfólio no mesmo balaio.</p>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">Frentes principais</h2>
-      <p class="section-subtitle">
-        O grupo começa com duas bases claras: estrutura digital para presença sólida e automação com BI para operação mais eficiente.
-        Sem espuma, sem enfeite, sem prometer revolução de PowerPoint.
+
+<section class="section">
+  <h2 class="section-title">Frentes principais</h2>
+  <p class="section-subtitle">
+    A XGreat é a marca principal do site. O Grupo XGR organiza as frentes de atuação que hoje já estão definidas com foco prático e posicionamento claro.
+  </p>
+
+  <div class="cards">
+    <article class="card">
+      <span class="eyebrow">Frente 01</span>
+      <h3>XGR Digital</h3>
+      <p>
+        Frente voltada à criação, implantação e organização de presença digital para negócios que precisam sair do improviso e ganhar estrutura comercial online.
       </p>
+      <ul>
+        <li>Sites institucionais e landing pages</li>
+        <li>E-commerce e estrutura comercial digital</li>
+        <li>Domínio, DNS e e-mail profissional</li>
+        <li>Implantação técnica e ajustes operacionais</li>
+        <li>Evolução com base real de negócio</li>
+      </ul>
+    </article>
 
-      <div class="cards">
-        <article class="card">
-          <h3>XGR Digital</h3>
-          <p>
-            Frente voltada à criação, implantação e organização de presença digital para negócios
-            que precisam sair do improviso e ganhar estrutura.
-          </p>
-          <ul>
-            <li>Sites institucionais e landing pages</li>
-            <li>E-commerce e estrutura comercial digital</li>
-            <li>Domínio, DNS e e-mail profissional</li>
-            <li>Organização técnica e implantação</li>
-            <li>Ajustes, evolução e suporte operacional</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>XGR Automação & BI</h3>
-          <p>
-            Frente dedicada à inteligência operacional, automação de rotinas e visualização de dados
-            para reduzir retrabalho e melhorar decisões.
-          </p>
-          <ul>
-            <li>Dashboards e relatórios em Power BI</li>
-            <li>Automação de processos e fluxos internos</li>
-            <li>Integração entre rotinas e sistemas</li>
-            <li>Redução de tarefas manuais</li>
-            <li>Organização e leitura operacional do negócio</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="highlight-box">
-        A proposta da XGreat é simples: transformar conhecimento técnico em estrutura, processo e solução útil.
-        Por trás da marca, o Grupo XGR organiza suas frentes com base prática, foco em execução e expansão inteligente.
-      </div>
-    </section>
-
-    <section class="section cta">
-      <h2 class="section-title">Base antes de expansão</h2>
-      <p class="section-subtitle">
-        O caminho agora é consolidar operação, organizar frentes e publicar soluções reais.
-        Crescimento sério começa com estrutura. O resto é espuma de internet.
+    <article class="card">
+      <span class="eyebrow">Frente 02</span>
+      <h3>XGR Automação &amp; BI</h3>
+      <p>
+        Frente dedicada à automação de rotinas, integração operacional e leitura gerencial por dados, com foco em reduzir retrabalho e melhorar decisões.
       </p>
-      <a href="projetos.html" class="btn btn-primary">Ver projetos e frentes</a>
-    </section>
+      <ul>
+        <li>Automação de processos</li>
+        <li>Dashboards e relatórios em Power BI</li>
+        <li>Integração entre rotinas e sistemas</li>
+        <li>Organização de fluxo operacional</li>
+        <li>Mais clareza para análise e gestão</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="highlight-box">
+    Aqui a lógica fica limpa: <strong>XGreat</strong> é a marca-mãe do site. <strong>Grupo XGR</strong> é a estrutura que organiza os braços. Isso evita a bagunça clássica de parecer uma empresa diferente em cada página, esse hobby nacional de branding confuso.
+  </div>
+</section>
+
+<section class="section cta">
+  <h2 class="section-title">Base primeiro, portfólio depois</h2>
+  <p class="section-subtitle">
+    A página de soluções explica o que a XGreat faz. A página de projetos mostra os cases e trabalhos publicados ou em implantação. Cada coisa no seu lugar, conceito revolucionário para a internet de 2026.
+  </p>
+  <div class="hero-actions">
+    <a href="automacao.html" class="btn btn-primary">Conhecer soluções</a>
+    <a href="projetos.html" class="btn btn-secondary">Ver projetos</a>
+  </div>
+</section>
+
   </main>
 
-  <style>
+
+<style>
   .xgr-site-footer {
     margin-top: 80px;
     padding: 26px 20px 34px;
@@ -582,9 +630,9 @@
     </div>
 
     <nav class="xgr-site-footer__links" aria-label="Links institucionais">
-      <a href="/privacidade.html">Privacidade</a>
-      <a href="/cookies.html">Cookies</a>
-      <a href="/contato.html">Contato</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="contato.html">Contato</a>
     </nav>
   </div>
 </footer>
@@ -594,7 +642,7 @@
     <div class="xgr-cookie-banner__text">
       Este site utiliza cookies e tecnologias semelhantes para funcionamento básico e medição de acesso.
       Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso dessas tecnologias conforme nossa
-      <a href="/cookies.html">Política de Cookies</a> e <a href="/privacidade.html">Política de Privacidade</a>.
+      <a href="cookies.html">Política de Cookies</a> e <a href="privacidade.html">Política de Privacidade</a>.
     </div>
 
     <div class="xgr-cookie-banner__actions">
@@ -654,6 +702,7 @@
     });
   })();
 </script>
+
 
   <a
     class="whatsapp-float"
