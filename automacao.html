@@ -542,17 +542,37 @@
     display: flex;
     gap: 18px;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   .xgr-site-footer__links a {
     color: rgba(255,255,255,.88);
     text-decoration: none;
     font-size: 14px;
-    transition: opacity .2s ease;
+    transition: opacity .2s ease, color .2s ease;
   }
 
   .xgr-site-footer__links a:hover {
-    opacity: .72;
+    opacity: .9;
+    color: #f5d76e;
+  }
+
+  .xgr-site-footer__social {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #d4af37;
+  }
+
+  .xgr-site-footer__social svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    display: block;
+  }
+
+  .xgr-site-footer__social span {
+    color: #f5d76e;
   }
 
   .xgr-cookie-banner {
