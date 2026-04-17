@@ -13,18 +13,18 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contato | XGreat</title>
+  <title>Contato | XGR Digital</title>
   <meta name="description" content="Entre em contato com a XGreat para projetos de estrutura digital, sites, e-commerce, automação de processos e BI." />
   <link rel="canonical" href="https://xgreat.com.br/contato.html" />
   <meta name="robots" content="index, follow" />
   <meta property="og:site_name" content="XGreat" />
-  <meta property="og:title" content="Contato | XGreat" />
+  <meta property="og:title" content="Contato | XGR Digital" />
   <meta property="og:description" content="Entre em contato com a XGreat para projetos de estrutura digital, sites, e-commerce, automação de processos e BI." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://xgreat.com.br/contato.html" />
   <meta property="og:image" content="https://xgreat.com.br/logo-xgr.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contato | XGreat" />
+  <meta name="twitter:title" content="Contato | XGR Digital" />
   <meta name="twitter:description" content="Entre em contato com a XGreat para projetos de estrutura digital, sites, e-commerce, automação de processos e BI." />
   <meta name="twitter:image" content="https://xgreat.com.br/logo-xgr.jpg" />
   <meta name="theme-color" content="#050814" />
@@ -154,6 +154,7 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
+      align-items: start;
     }
 
     .card {
@@ -245,48 +246,33 @@
       transform: translateY(-1px);
     }
 
-    .instagram-qr-box {
-      margin-top: 24px;
-      padding: 18px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .qr-wrap {
+      margin-top: 22px;
       text-align: center;
+      padding-top: 6px;
     }
 
-    .instagram-qr-box p {
-      margin: 0 0 12px;
-      color: #cfd3db;
-      font-size: 0.94rem;
+    .qr-wrap p {
+      margin: 0 0 10px;
+      color: #bfc6d1;
+      font-size: 0.92rem;
       line-height: 1.6;
     }
 
-    .instagram-qr-link {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .instagram-qr-link img {
-      width: 170px;
+    .qr-wrap img {
+      width: 150px;
       max-width: 100%;
       height: auto;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.96);
+      border-radius: 14px;
+      background: #fff;
       padding: 8px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
-      transition: transform 0.25s ease, opacity 0.25s ease;
+      opacity: 0.94;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
-    .instagram-qr-link:hover img {
+    .qr-wrap img:hover {
       transform: translateY(-2px);
-      opacity: 0.96;
-    }
-
-    .instagram-qr-caption {
-      font-size: 0.86rem;
-      color: #bfc6d1;
+      opacity: 1;
     }
 
     .whatsapp-float {
@@ -548,7 +534,7 @@
     <section class="section">
       <h2 class="section-title">Canais de contato</h2>
       <p class="section-subtitle">
-        A XGreat centraliza o contato institucional e mantém os braços com identificação clara. Organização básica, esse item raro que muita empresa finge ter.
+        A XGreat centraliza o contato institucional e mantém os braços com identificação clara. Organização básica, esse item exótico que muita empresa finge conhecer.
       </p>
 
       <div class="cards">
@@ -558,6 +544,7 @@
             Frente voltada à estrutura digital, sites, e-commerce, implantação técnica e presença online.
           </p>
 
+          <div class="contact-list">
             <a class="contact-item" href="mailto:rafael@xgreat.com.br">
               <span class="contact-label">Contato direto</span>
               <span class="contact-value">rafael@xgreat.com.br</span>
@@ -580,11 +567,10 @@
             </a>
           </div>
 
-          <div class="instagram-qr-box">
+          <div class="qr-wrap">
             <p>Se preferir, escaneie o QR Code e abra o Instagram da XGR Digital direto no celular.</p>
-            <a class="instagram-qr-link" href="https://www.instagram.com/xgreat.digital?igsh=bjJqa28zZ3Z6ZmR3" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram da XGR Digital">
-              <img src="instagram-xgreat-qr.png" alt="QR Code do Instagram da XGR Digital" />
-              <span class="instagram-qr-caption">@xgreat.digital</span>
+            <a href="https://www.instagram.com/xgreat.digital?igsh=bjJqa28zZ3Z6ZmR3" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram da XGR Digital">
+              <img src="instagram-xgreat-qrpng" alt="QR Code do Instagram da XGR Digital" />
             </a>
           </div>
         </article>
@@ -605,7 +591,6 @@
       </div>
 
       <div class="highlight-box">
-        Contato institucional da marca: <strong>xgreat@xgreat.com.br</strong><br />
         Frente digital: <strong>rafael@xgreat.com.br</strong><br />
         Instagram da frente digital: <strong>@xgreat.digital</strong><br />
         Frente de Automação &amp; BI: <strong>daniel.lima@xgreat.com.br</strong>
