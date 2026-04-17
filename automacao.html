@@ -646,93 +646,91 @@
     }
   }
 </style>
+  <footer class="xgr-site-footer">
+    <div class="xgr-site-footer__inner">
+      <div class="xgr-site-footer__brand">
+        &copy; 2023-2026 XGreat | Grupo XGR. Todos os direitos reservados.
+      </div>
 
-<footer class="xgr-site-footer">
-  <div class="xgr-site-footer__inner">
-    <div class="xgr-site-footer__brand">
-      &copy; 2023-2026 XGreat | Grupo XGR. Todos os direitos reservados.
+      <nav class="xgr-site-footer__links" aria-label="Links institucionais">
+        <a href="privacidade.html">Privacidade</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="contato.html">Contato</a>
+        <a class="xgr-site-footer__social" href="https://www.instagram.com/xgreat.digital?igsh=bjJqa28zZ3Z6ZmR3" target="_blank" rel="noopener noreferrer" aria-label="Instagram da XGR Digital">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5zm5.25-2.38a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26z"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+      </nav>
     </div>
+  </footer>
 
-    <nav class="xgr-site-footer__links" aria-label="Links institucionais">
-      <a href="privacidade.html">Privacidade</a>
-      <a href="cookies.html">Cookies</a>
-      <a href="contato.html">Contato</a>
-      <a class="xgr-site-footer__social" href="https://www.instagram.com/xgreat.digital?igsh=bjJqa28zZ3Z6ZmR3" target="_blank" rel="noopener noreferrer" aria-label="Instagram da XGR Digital">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5zm5.25-2.38a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26z"/>
-        </svg>
-        <span>Instagram</span>
-      </a>
-    </nav>
+  <div class="xgr-cookie-banner" id="xgrCookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div class="xgr-cookie-banner__content">
+      <div class="xgr-cookie-banner__text">
+        Este site utiliza cookies e tecnologias semelhantes para funcionamento básico e medição de acesso.
+        Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso dessas tecnologias conforme nossa
+        <a href="cookies.html">Política de Cookies</a> e <a href="privacidade.html">Política de Privacidade</a>.
+      </div>
+
+      <div class="xgr-cookie-banner__actions">
+        <button class="xgr-cookie-btn" type="button" id="xgrCookieReject">Recusar</button>
+        <button class="xgr-cookie-btn primary" type="button" id="xgrCookieAccept">Aceitar</button>
+      </div>
+    </div>
   </div>
-</footer>
 
-<div class="xgr-cookie-banner" id="xgrCookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-  <div class="xgr-cookie-banner__content">
-    <div class="xgr-cookie-banner__text">
-      Este site utiliza cookies e tecnologias semelhantes para funcionamento básico e medição de acesso.
-      Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso dessas tecnologias conforme nossa
-      <a href="cookies.html">Política de Cookies</a> e <a href="privacidade.html">Política de Privacidade</a>.
-    </div>
+  <script>
+    (function () {
+      var storageKey = 'xgr_cookie_choice';
+      var banner = document.getElementById('xgrCookieBanner');
+      var acceptBtn = document.getElementById('xgrCookieAccept');
+      var rejectBtn = document.getElementById('xgrCookieReject');
 
-    <div class="xgr-cookie-banner__actions">
-      <button class="xgr-cookie-btn" type="button" id="xgrCookieReject">Recusar</button>
-      <button class="xgr-cookie-btn primary" type="button" id="xgrCookieAccept">Aceitar</button>
-    </div>
-  </div>
-</div>
+      if (!banner || !acceptBtn || !rejectBtn) return;
 
-<script>
-  (function () {
-    var storageKey = 'xgr_cookie_choice';
-    var banner = document.getElementById('xgrCookieBanner');
-    var acceptBtn = document.getElementById('xgrCookieAccept');
-    var rejectBtn = document.getElementById('xgrCookieReject');
-
-    if (!banner || !acceptBtn || !rejectBtn) return;
-
-    function hideBanner() {
-      banner.classList.remove('show');
-    }
-
-    function showBanner() {
-      banner.classList.add('show');
-    }
-
-    function saveChoice(value) {
-      try {
-        localStorage.setItem(storageKey, value);
-      } catch (e) {
-        console.warn('Não foi possível salvar a preferência de cookies.', e);
+      function hideBanner() {
+        banner.classList.remove('show');
       }
-    }
 
-    function getChoice() {
-      try {
-        return localStorage.getItem(storageKey);
-      } catch (e) {
-        return null;
+      function showBanner() {
+        banner.classList.add('show');
       }
-    }
 
-    var choice = getChoice();
+      function saveChoice(value) {
+        try {
+          localStorage.setItem(storageKey, value);
+        } catch (e) {
+          console.warn('Não foi possível salvar a preferência de cookies.', e);
+        }
+      }
 
-    if (!choice) {
-      showBanner();
-    }
+      function getChoice() {
+        try {
+          return localStorage.getItem(storageKey);
+        } catch (e) {
+          return null;
+        }
+      }
 
-    acceptBtn.addEventListener('click', function () {
-      saveChoice('accepted');
-      hideBanner();
-    });
+      var choice = getChoice();
 
-    rejectBtn.addEventListener('click', function () {
-      saveChoice('rejected');
-      hideBanner();
-    });
-  })();
-</script>
+      if (!choice) {
+        showBanner();
+      }
 
+      acceptBtn.addEventListener('click', function () {
+        saveChoice('accepted');
+        hideBanner();
+      });
+
+      rejectBtn.addEventListener('click', function () {
+        saveChoice('rejected');
+        hideBanner();
+      });
+    })();
+  </script>
 
   <a
     class="whatsapp-float"
