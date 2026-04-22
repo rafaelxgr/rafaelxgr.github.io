@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico Xgreat</title>
+  <style>
+    :root {
+      --bg: #0a0c10;
+      --panel: #12161d;
+      --panel-2: #171c24;
+      --line: rgba(255,255,255,.08);
+      --text: #f4f7fb;
+      --muted: #9ca7b7;
+      --gold: #c8a96b;
+      --gold-2: #e3c58b;
+      --danger: #e06a6a;
+      --ok: #5fc58a;
+      --warn: #e2b45e;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(200,169,107,.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(200,169,107,.08), transparent 20%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 80px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-main {
+      padding: 30px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(200,169,107,.25);
+      border-radius: 999px;
+      color: var(--gold-2);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(200,169,107,.06);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.02;
+      margin: 0 0 16px;
+      letter-spacing: -.03em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 62ch;
+      margin: 0 0 22px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .point {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .point strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .score-card {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    .score-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .score-label {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .score-circle {
+      width: 146px;
+      height: 146px;
+      margin: 8px auto 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--gold) 0deg, rgba(255,255,255,.08) 0deg);
+      position: relative;
+      transition: background .35s ease;
+    }
+
+    .score-circle::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      background: #0e1319;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .score-number {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .score-number strong {
+      display: block;
+      font-size: 40px;
+      line-height: 1;
+    }
+
+    .score-number span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .badge {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .badge.critico { background: rgba(224,106,106,.14); color: #ffb0b0; border: 1px solid rgba(224,106,106,.24); }
+    .badge.fraco { background: rgba(226,180,94,.14); color: #ffd48c; border: 1px solid rgba(226,180,94,.24); }
+    .badge.bom { background: rgba(95,197,138,.14); color: #b8ffd3; border: 1px solid rgba(95,197,138,.24); }
+    .badge.forte { background: rgba(200,169,107,.14); color: #f5dcae; border: 1px solid rgba(200,169,107,.24); }
+
+    .score-text, .next-step {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+
+    .section {
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    .section h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      letter-spacing: -.02em;
+    }
+
+    .section p.section-sub {
+      margin: 0 0 22px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(200,169,107,.28);
+      background: var(--panel-2);
+    }
+
+    .item label {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 16px;
+      cursor: pointer;
+      align-items: start;
+    }
+
+    .item input[type="checkbox"] {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.04);
+      margin-top: 2px;
+      position: relative;
+      transition: all .16s ease;
+    }
+
+    .item input[type="checkbox"]:checked {
+      background: linear-gradient(180deg, var(--gold), #a8884f);
+      border-color: transparent;
+      box-shadow: 0 0 0 3px rgba(200,169,107,.12);
+    }
+
+    .item input[type="checkbox"]:checked::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 3px;
+      width: 5px;
+      height: 10px;
+      border: solid #111;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .item strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .item span {
+      color: var(--muted);
+      font-size: 14px;
+      display: block;
+    }
+
+    .item small {
+      display: inline-flex;
+      margin-top: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(200,169,107,.08);
+      color: var(--gold-2);
+      border: 1px solid rgba(200,169,107,.15);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform .16s ease, opacity .16s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--gold-2), var(--gold));
+      color: #16120b;
+    }
+    .btn-secondary {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .report {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 16px;
+    }
+
+    .report-block {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .report-block h3 {
+      margin: 0 0 12px;
+      font-size: 17px;
+    }
+
+    .report-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .report-list li + li { margin-top: 8px; }
+
+    .footer-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .hero, .report { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .hero-points { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 20px, 1120px); padding-top: 20px; }
+      .hero-main, .score-card, .section { padding: 20px; }
+      h1 { font-size: 32px; }
+      .score-circle { width: 128px; height: 128px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="card hero-main">
+        <div class="eyebrow">Diagnóstico Xgreat</div>
+        <h1>Descubra o nível real da sua presença digital.</h1>
+        <p class="lead">
+          Marque o que o negócio já tem. Em segundos, o sistema calcula a maturidade digital,
+          mostra o gargalo principal e aponta a próxima ação mais inteligente.
+        </p>
+        <div class="hero-points">
+          <div class="point">
+            <strong>Diagnóstico rápido</strong>
+            Sem cadastro, sem firula e sem teatro de consultoria.
+          </div>
+          <div class="point">
+            <strong>Leitura objetiva</strong>
+            Você vê o que existe, o que falta e onde está perdendo força.
+          </div>
+          <div class="point">
+            <strong>Uso comercial</strong>
+            Serve como ativo da Xgreat para briefing, captação e análise.
+          </div>
+          <div class="point">
+            <strong>Publicável hoje</strong>
+            HTML, CSS e JS puros. Sobe fácil no GitHub Pages.
+          </div>
+        </div>
+      </div>
+
+      <aside class="card score-card">
+        <div>
+          <div class="score-top">
+            <div>
+              <div class="score-label">Pontuação atual</div>
+            </div>
+          </div>
+
+          <div class="score-circle" id="scoreCircle">
+            <div class="score-number">
+              <strong id="scoreValue">0</strong>
+              <span id="scorePercent">0%</span>
+            </div>
+          </div>
+
+          <div class="badge critico" id="scoreBadge">Diagnóstico crítico</div>
+          <p class="score-text" id="scoreText">Comece marcando os itens abaixo para gerar o diagnóstico.</p>
+          <p class="next-step"><strong>Próximo passo:</strong> <span id="nextStep">Definir a base digital mínima.</span></p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card section">
+      <h2>Checklist de maturidade digital</h2>
+      <p class="section-sub">Marque o que já existe de verdade. Não vale marcar porque “vai fazer depois”.</p>
+
+      <div class="grid" id="checklist"></div>
+
+      <div class="actions">
+        <button class="btn-primary" id="copySummary">Copiar resumo</button>
+        <button class="btn-secondary" id="resetChecklist">Resetar checklist</button>
+      </div>
+    </section>
+
+    <section class="card section">
+      <h2>Leitura do cenário</h2>
+      <p class="section-sub">O relatório abaixo separa o que já existe do que ainda está travando resultado.</p>
+
+      <div class="report">
+        <div class="report-block">
+          <h3>O que já está pronto</h3>
+          <ul class="report-list" id="doneList">
+            <li>Nada marcado ainda.</li>
+          </ul>
+        </div>
+
+        <div class="report-block">
+          <h3>O que ainda falta</h3>
+          <ul class="report-list" id="missingList">
+            <li>Marque os itens acima para ver o diagnóstico.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-note" id="summaryLine">
+        Diagnóstico inicial: estrutura ainda não avaliada.
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const items = [
+      { id: 'dominio', label: 'Domínio próprio', desc: 'O negócio usa domínio profissional, sem depender de link improvisado.', weight: 8 },
+      { id: 'email', label: 'E-mail profissional', desc: 'Existe contato com domínio da marca, não Gmail solto no meio do mato.', weight: 6 },
+      { id: 'site', label: 'Site institucional ou landing page', desc: 'Há presença própria para apresentar a operação com clareza.', weight: 10 },
+      { id: 'whatsapp', label: 'WhatsApp comercial integrado', desc: 'Contato rápido, funcional e visível no site ou nas campanhas.', weight: 6 },
+      { id: 'seo', label: 'SEO básico configurado', desc: 'Títulos, descrições, indexação e estrutura mínima já foram pensados.', weight: 8 },
+      { id: 'ga4', label: 'Google Analytics / GA4', desc: 'O negócio acompanha tráfego e comportamento em vez de chutar no escuro.', weight: 8 },
+      { id: 'pixel', label: 'Pixel / rastreamento de mídia', desc: 'Meta Pixel ou equivalente para campanhas e remarketing.', weight: 7 },
+      { id: 'gmb', label: 'Perfil Google Business', desc: 'Negócio local ou marca com presença no ecossistema do Google.', weight: 5 },
+      { id: 'social', label: 'Redes com identidade visual coerente', desc: 'Existe padrão visual minimamente profissional entre canais.', weight: 6 },
+      { id: 'conteudo', label: 'Conteúdo mínimo ativo', desc: 'A operação não parece abandonada ou parada no tempo.', weight: 5 },
+      { id: 'politicas', label: 'Políticas e privacidade', desc: 'Existe base jurídica e transparência mínima no site.', weight: 7 },
+      { id: 'velocidade', label: 'Site responsivo e rápido', desc: 'A experiência no mobile não está implorando por misericórdia.', weight: 8 },
+      { id: 'formulario', label: 'Formulário ou captação de lead', desc: 'Existe meio de captar contato além de esperar milagre.', weight: 5 },
+      { id: 'portfolio', label: 'Portfólio, cases ou prova social', desc: 'A marca mostra serviço real, resultado ou trabalho entregue.', weight: 7 },
+      { id: 'automacao', label: 'Automação básica', desc: 'Há algum fluxo, integração ou rotina automatizada.', weight: 4 }
+    ];
+
+    const totalWeight = items.reduce((sum, item) => sum + item.weight, 0);
+
+    const checklist = document.getElementById('checklist');
+    const scoreValue = document.getElementById('scoreValue');
+    const scorePercent = document.getElementById('scorePercent');
+    const scoreCircle = document.getElementById('scoreCircle');
+    const scoreBadge = document.getElementById('scoreBadge');
+    const scoreText = document.getElementById('scoreText');
+    const nextStep = document.getElementById('nextStep');
+    const doneList = document.getElementById('doneList');
+    const missingList = document.getElementById('missingList');
+    const summaryLine = document.getElementById('summaryLine');
+    const resetChecklist = document.getElementById('resetChecklist');
+    const copySummary = document.getElementById('copySummary');
+
+    function renderChecklist() {
+      checklist.innerHTML = items.map(item => `
+        <div class="item">
+          <label>
+            <input type="checkbox" data-id="${item.id}" data-weight="${item.weight}" />
+            <div>
+              <strong>${item.label}</strong>
+              <span>${item.desc}</span>
+              <small>+${item.weight} pontos</small>
+            </div>
+          </label>
+        </div>
+      `).join('');
+
+      checklist.querySelectorAll('input').forEach(input => {
+        input.addEventListener('change', updateDiagnosis);
+      });
+    }
+
+    function getSelected() {
+      return items.filter(item => {
+        const checkbox = checklist.querySelector(`[data-id="${item.id}"]`);
+        return checkbox && checkbox.checked;
+      });
+    }
+
+    function getMissing() {
+      const selectedIds = new Set(getSelected().map(item => item.id));
+      return items.filter(item => !selectedIds.has(item.id));
+    }
+
+    function getLevel(percent) {
+      if (percent < 30) {
+        return {
+          cls: 'critico',
+          title: 'Diagnóstico crítico',
+          text: 'A base digital está fraca. Sem estrutura mínima, a operação perde credibilidade, rastreio e conversão.',
+          step: 'Criar base mínima: domínio, e-mail profissional, site e contato funcional.'
+        };
+      }
+      if (percent < 55) {
+        return {
+          cls: 'fraco',
+          title: 'Diagnóstico fraco',
+          text: 'Já existe alguma presença, mas ainda faltam pilares que sustentam tráfego, confiança e captação.',
+          step: 'Organizar medição, SEO básico, políticas e prova social.'
+        };
+      }
+      if (percent < 80) {
+        return {
+          cls: 'bom',
+          title: 'Diagnóstico bom',
+          text: 'A operação já tem estrutura funcional. Agora o jogo é otimizar conversão, automação e consistência.',
+          step: 'Refinar rastreamento, conteúdo e automações de ganho real.'
+        };
+      }
+      return {
+        cls: 'forte',
+        title: 'Diagnóstico forte',
+        text: 'A base está sólida. O próximo nível é performance, escala e processos mais afiados.',
+        step: 'Aumentar eficiência, teste, oferta e integração.'
+      };
+    }
+
+    function buildList(listEl, data, emptyText) {
+      if (!data.length) {
+        listEl.innerHTML = `<li>${emptyText}</li>`;
+        return;
+      }
+      listEl.innerHTML = data.map(item => `<li><strong>${item.label}.</strong> ${item.desc}</li>`).join('');
+    }
+
+    function updateDiagnosis() {
+      const selected = getSelected();
+      const missing = getMissing();
+      const score = selected.reduce((sum, item) => sum + item.weight, 0);
+      const percent = Math.round((score / totalWeight) * 100);
+      const level = getLevel(percent);
+      const degrees = Math.round((percent / 100) * 360);
+
+      scoreValue.textContent = score;
+      scorePercent.textContent = `${percent}%`;
+      scoreCircle.style.background = `conic-gradient(var(--gold) ${degrees}deg, rgba(255,255,255,.08) ${degrees}deg)`;
+      scoreBadge.className = `badge ${level.cls}`;
+      scoreBadge.textContent = level.title;
+      scoreText.textContent = level.text;
+      nextStep.textContent = level.step;
+
+      buildList(doneList, selected, 'Nada marcado ainda.');
+      buildList(missingList, missing, 'Nada faltando. Estrutura completa. Milagre raro.');
+
+      const topMissing = missing
+        .slice()
+        .sort((a, b) => b.weight - a.weight)
+        .slice(0, 3)
+        .map(item => item.label)
+        .join(', ');
+
+      summaryLine.textContent = selected.length
+        ? `Pontuação ${score}/${totalWeight} (${percent}%). Prioridade: ${topMissing || 'refino e escala'}.`
+        : 'Diagnóstico inicial: estrutura ainda não avaliada.';
+    }
+
+    function copyReport() {
+      const selected = getSelected().map(item => `- ${item.label}`).join('\n') || '- Nada marcado';
+      const missing = getMissing().map(item => `- ${item.label}`).join('\n') || '- Nada pendente';
+      const score = scoreValue.textContent;
+      const percent = scorePercent.textContent;
+      const level = scoreBadge.textContent;
+      const text = [
+        'Diagnóstico Xgreat',
+        '',
+        `Pontuação: ${score} | Percentual: ${percent}`,
+        `Nível: ${level}`,
+        `Leitura: ${scoreText.textContent}`,
+        `Próximo passo: ${nextStep.textContent}`,
+        '',
+        'O que já existe:',
+        selected,
+        '',
+        'O que ainda falta:',
+        missing
+      ].join('\n');
+
+      navigator.clipboard.writeText(text).then(() => {
+        copySummary.textContent = 'Resumo copiado';
+        setTimeout(() => copySummary.textContent = 'Copiar resumo', 1800);
+      }).catch(() => {
+        copySummary.textContent = 'Falhou ao copiar';
+        setTimeout(() => copySummary.textContent = 'Copiar resumo', 1800);
+      });
+    }
+
+    function resetAll() {
+      checklist.querySelectorAll('input').forEach(input => input.checked = false);
+      updateDiagnosis();
+    }
+
+    renderChecklist();
+    updateDiagnosis();
+
+    resetChecklist.addEventListener('click', resetAll);
+    copySummary.addEventListener('click', copyReport);
+  </script>
+</body>
+</html>
+
