@@ -468,7 +468,7 @@
           <p class="score-text" id="scoreText">Comece marcando os itens abaixo para gerar o diagnóstico.</p>
           <p class="next-step"><strong>Próximo passo:</strong> <span id="nextStep">Definir a base digital mínima.</span></p>
           <div class="score-actions">
-            <button class="btn-secondary flow-cta" id="viewDetailedAnalysis" type="button" disabled>Ver análise detalhada</button>
+            <button class="btn-secondary flow-cta" id="viewDetailedAnalysis" type="button">Ver análise detalhada</button>
           </div>
         </div>
       </aside>
@@ -674,7 +674,6 @@
       if (!hasResult) {
         resultActions.classList.remove('visible');
         whatsappSummary.removeAttribute('href');
-        viewDetailedAnalysis.disabled = true;
         return;
       }
 
@@ -682,7 +681,6 @@
       const encodedMessage = encodeURIComponent(message);
       whatsappSummary.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
       resultActions.classList.add('visible');
-      viewDetailedAnalysis.disabled = false;
     }
 
     function updateDiagnosis() {
