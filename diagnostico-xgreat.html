@@ -320,6 +320,9 @@
       color: var(--text);
       border: 1px solid var(--line);
     }
+    .btn-secondary.discreet {
+      opacity: .88;
+    }
     a.btn-primary, a.btn-secondary, a.btn-whatsapp {
       display: inline-flex;
       align-items: center;
@@ -426,7 +429,7 @@
         </div>
       </div>
 
-      <aside class="card score-card">
+      <aside class="card score-card" id="scoreCard">
         <div>
           <div class="score-top">
             <div>
@@ -444,6 +447,9 @@
           <div class="badge critico" id="scoreBadge">Diagnóstico crítico</div>
           <p class="score-text" id="scoreText">Comece marcando os itens abaixo para gerar o diagnóstico.</p>
           <p class="next-step"><strong>Próximo passo:</strong> <span id="nextStep">Definir a base digital mínima.</span></p>
+          <div class="actions">
+            <button class="btn-secondary discreet" id="viewDetailedAnalysis" type="button">Ver análise detalhada</button>
+          </div>
         </div>
       </aside>
     </section>
@@ -455,7 +461,7 @@
       <div class="grid" id="checklist"></div>
 
       <div class="actions">
-        <button class="btn-primary" id="copySummary">Copiar resumo</button>
+        <button class="btn-primary" id="showDiagnosis" type="button">Exibir diagnóstico</button>
         <button class="btn-secondary" id="resetChecklist">Resetar checklist</button>
       </div>
     </section>
@@ -486,6 +492,7 @@
       <div class="result-actions" id="resultActions">
         <a class="btn-primary btn-whatsapp" id="whatsappSummary" href="#" target="_blank" rel="noopener noreferrer">Falar com a XGR Digital</a>
         <button class="btn-secondary" id="downloadSummary" type="button">Baixar diagnóstico (.txt)</button>
+        <button class="btn-secondary discreet" id="copyDiagnosis" type="button">Copiar diagnóstico</button>
       </div>
     </section>
   </div>
@@ -522,8 +529,11 @@
     const missingList = document.getElementById('missingList');
     const summaryLine = document.getElementById('summaryLine');
     const resetChecklist = document.getElementById('resetChecklist');
-    const copySummary = document.getElementById('copySummary');
+    const showDiagnosis = document.getElementById('showDiagnosis');
+    const copyDiagnosis = document.getElementById('copyDiagnosis');
     const diagnosisResult = document.getElementById('diagnosisResult');
+    const scoreCard = document.getElementById('scoreCard');
+    const viewDetailedAnalysis = document.getElementById('viewDetailedAnalysis');
     const resultActions = document.getElementById('resultActions');
     const whatsappSummary = document.getElementById('whatsappSummary');
     const downloadSummary = document.getElementById('downloadSummary');
@@ -542,10 +552,6 @@
           </label>
         </div>
       `).join('');
-
-      checklist.querySelectorAll('input').forEach(input => {
-        input.addEventListener('change', updateDiagnosis);
-      });
     }
 
     function getSelected() {
@@ -686,12 +692,12 @@
       const text = buildDiagnosisSummary();
 
       navigator.clipboard.writeText(text).then(() => {
-        copySummary.textContent = 'Resumo copiado';
+        copyDiagnosis.textContent = 'Diagnóstico copiado';
         diagnosisResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setTimeout(() => copySummary.textContent = 'Copiar resumo', 1800);
+        setTimeout(() => copyDiagnosis.textContent = 'Copiar diagnóstico', 1800);
       }).catch(() => {
-        copySummary.textContent = 'Falhou ao copiar';
-        setTimeout(() => copySummary.textContent = 'Copiar resumo', 1800);
+        copyDiagnosis.textContent = 'Falhou ao copiar';
+        setTimeout(() => copyDiagnosis.textContent = 'Copiar diagnóstico', 1800);
       });
     }
 
@@ -713,11 +719,22 @@
       updateDiagnosis();
     }
 
+    function showDiagnosisResult() {
+      updateDiagnosis();
+      scoreCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function goToDetailedAnalysis() {
+      diagnosisResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
     renderChecklist();
     updateDiagnosis();
 
     resetChecklist.addEventListener('click', resetAll);
-    copySummary.addEventListener('click', copyReport);
+    showDiagnosis.addEventListener('click', showDiagnosisResult);
+    copyDiagnosis.addEventListener('click', copyReport);
+    viewDetailedAnalysis.addEventListener('click', goToDetailedAnalysis);
     downloadSummary.addEventListener('click', downloadReport);
   </script>
 </body>
