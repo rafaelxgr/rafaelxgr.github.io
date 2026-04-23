@@ -320,6 +320,35 @@
       color: var(--text);
       border: 1px solid var(--line);
     }
+    a.btn-primary, a.btn-secondary, a.btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      transition: transform .16s ease, opacity .16s ease;
+    }
+    a.btn-primary:hover, a.btn-secondary:hover, a.btn-whatsapp:hover {
+      transform: translateY(-1px);
+    }
+    .btn-whatsapp {
+      background: linear-gradient(180deg, #30d66b, #1ea851);
+      color: #04130a;
+    }
+
+    .result-actions {
+      display: none;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .result-actions.visible {
+      display: flex;
+    }
 
     .report {
       display: grid;
@@ -431,7 +460,7 @@
       </div>
     </section>
 
-    <section class="card section">
+    <section class="card section" id="diagnosisResult">
       <h2>Leitura do cenário</h2>
       <p class="section-sub">O relatório abaixo separa o que já existe do que ainda está travando resultado.</p>
 
@@ -453,6 +482,10 @@
 
       <div class="footer-note" id="summaryLine">
         Diagnóstico inicial: estrutura ainda não avaliada.
+      </div>
+      <div class="result-actions" id="resultActions">
+        <a class="btn-primary btn-whatsapp" id="whatsappSummary" href="#" target="_blank" rel="noopener noreferrer">Falar com a XGR Digital</a>
+        <button class="btn-secondary" id="downloadSummary" type="button">Baixar diagnóstico (.txt)</button>
       </div>
     </section>
   </div>
@@ -490,6 +523,11 @@
     const summaryLine = document.getElementById('summaryLine');
     const resetChecklist = document.getElementById('resetChecklist');
     const copySummary = document.getElementById('copySummary');
+    const diagnosisResult = document.getElementById('diagnosisResult');
+    const resultActions = document.getElementById('resultActions');
+    const whatsappSummary = document.getElementById('whatsappSummary');
+    const downloadSummary = document.getElementById('downloadSummary');
+    const whatsappNumber = '5511912131177';
 
     function renderChecklist() {
       checklist.innerHTML = items.map(item => `
@@ -563,65 +601,111 @@
       listEl.innerHTML = data.map(item => `<li><strong>${item.label}.</strong> ${item.desc}</li>`).join('');
     }
 
-    function updateDiagnosis() {
+    function getDiagnosisData() {
       const selected = getSelected();
       const missing = getMissing();
       const score = selected.reduce((sum, item) => sum + item.weight, 0);
-      const percent = Math.round((score / totalWeight) * 100);
-      const level = getLevel(percent);
-      const degrees = Math.round((percent / 100) * 360);
+      const percentValue = Math.round((score / totalWeight) * 100);
+      const level = getLevel(percentValue);
 
-      scoreValue.textContent = score;
-      scorePercent.textContent = `${percent}%`;
+      return {
+        selected,
+        missing,
+        score,
+        percentValue,
+        percentText: `${percentValue}%`,
+        level
+      };
+    }
+
+    function buildDiagnosisSummary() {
+      const data = getDiagnosisData();
+      const selectedList = data.selected.map(item => `- ${item.label}`).join('\n') || '- Nada marcado';
+      const missingList = data.missing.map(item => `- ${item.label}`).join('\n') || '- Nada pendente';
+
+      return [
+        'Diagnóstico XGR Digital',
+        '',
+        `Pontuação: ${data.score}/${totalWeight}`,
+        `Percentual: ${data.percentText}`,
+        `Nível do diagnóstico: ${data.level.title}`,
+        `Leitura do cenário: ${data.level.text}`,
+        `Próximo passo: ${data.level.step}`,
+        '',
+        'O que já está pronto:',
+        selectedList,
+        '',
+        'O que ainda falta:',
+        missingList
+      ].join('\n');
+    }
+
+    function refreshResultActions(hasResult) {
+      if (!hasResult) {
+        resultActions.classList.remove('visible');
+        whatsappSummary.removeAttribute('href');
+        return;
+      }
+
+      const message = buildDiagnosisSummary();
+      const encodedMessage = encodeURIComponent(message);
+      whatsappSummary.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      resultActions.classList.add('visible');
+    }
+
+    function updateDiagnosis() {
+      const data = getDiagnosisData();
+      const degrees = Math.round((data.percentValue / 100) * 360);
+
+      scoreValue.textContent = data.score;
+      scorePercent.textContent = data.percentText;
       scoreCircle.style.background = `conic-gradient(var(--gold) ${degrees}deg, rgba(255,255,255,.08) ${degrees}deg)`;
-      scoreBadge.className = `badge ${level.cls}`;
-      scoreBadge.textContent = level.title;
-      scoreText.textContent = level.text;
-      nextStep.textContent = level.step;
+      scoreBadge.className = `badge ${data.level.cls}`;
+      scoreBadge.textContent = data.level.title;
+      scoreText.textContent = data.level.text;
+      nextStep.textContent = data.level.step;
 
-      buildList(doneList, selected, 'Nada marcado ainda.');
-      buildList(missingList, missing, 'Nada faltando. Estrutura completa. Milagre raro.');
+      buildList(doneList, data.selected, 'Nada marcado ainda.');
+      buildList(missingList, data.missing, 'Nada faltando. Estrutura completa. Milagre raro.');
 
-      const topMissing = missing
+      const topMissing = data.missing
         .slice()
         .sort((a, b) => b.weight - a.weight)
         .slice(0, 3)
         .map(item => item.label)
         .join(', ');
 
-      summaryLine.textContent = selected.length
-        ? `Pontuação ${score}/${totalWeight} (${percent}%). Prioridade: ${topMissing || 'refino e escala'}.`
+      summaryLine.textContent = data.selected.length
+        ? `Pontuação ${data.score}/${totalWeight} (${data.percentText}). Prioridade: ${topMissing || 'refino e escala'}.`
         : 'Diagnóstico inicial: estrutura ainda não avaliada.';
+
+      refreshResultActions(data.selected.length > 0);
     }
 
     function copyReport() {
-      const selected = getSelected().map(item => `- ${item.label}`).join('\n') || '- Nada marcado';
-      const missing = getMissing().map(item => `- ${item.label}`).join('\n') || '- Nada pendente';
-      const score = scoreValue.textContent;
-      const percent = scorePercent.textContent;
-      const level = scoreBadge.textContent;
-      const text = [
-        'Diagnóstico Xgreat',
-        '',
-        `Pontuação: ${score} | Percentual: ${percent}`,
-        `Nível: ${level}`,
-        `Leitura: ${scoreText.textContent}`,
-        `Próximo passo: ${nextStep.textContent}`,
-        '',
-        'O que já existe:',
-        selected,
-        '',
-        'O que ainda falta:',
-        missing
-      ].join('\n');
+      const text = buildDiagnosisSummary();
 
       navigator.clipboard.writeText(text).then(() => {
         copySummary.textContent = 'Resumo copiado';
+        diagnosisResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
         setTimeout(() => copySummary.textContent = 'Copiar resumo', 1800);
       }).catch(() => {
         copySummary.textContent = 'Falhou ao copiar';
         setTimeout(() => copySummary.textContent = 'Copiar resumo', 1800);
       });
+    }
+
+    function downloadReport() {
+      const text = buildDiagnosisSummary();
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'diagnostico-xgr-digital.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
     }
 
     function resetAll() {
@@ -634,7 +718,7 @@
 
     resetChecklist.addEventListener('click', resetAll);
     copySummary.addEventListener('click', copyReport);
+    downloadSummary.addEventListener('click', downloadReport);
   </script>
 </body>
 </html>
-
