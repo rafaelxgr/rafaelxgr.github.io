@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
 :root {
   --xg-bg: #050912;
   --xg-surface: #0a1320;
@@ -9,7 +11,7 @@
   --xg-gold-soft: #ffe08a;
   --xg-cyan: #39d7c3;
   --xg-green: #62df9c;
-  --xg-max: 1180px;
+  --xg-max: 1480px;
 }
 
 body.page-os,
@@ -20,11 +22,27 @@ body.page-home-new {
     radial-gradient(circle at 12% 4%, rgba(57, 215, 195, .09), transparent 26rem),
     radial-gradient(circle at 88% 3%, rgba(233, 189, 77, .10), transparent 25rem),
     linear-gradient(180deg, #050912 0%, #07101c 52%, #050912 100%);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.os-hero h1,
+.section-heading h2,
+.final-cta h2,
+.plan-price {
+  font-family: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+}
+
+.os-kicker,
+.os-card__num,
+.module-card__tag,
+.plan-label,
+.ops-live {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
 }
 
 .site-header { position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--xg-line); background: rgba(5, 9, 18, .84); backdrop-filter: blur(18px); }
-.site-header__inner { width: min(var(--xg-max), calc(100% - 40px)); min-height: 76px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.site-header__inner { width: min(var(--xg-max), calc(100% - 64px)); min-height: 76px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .xg-logo { display: inline-flex; align-items: center; gap: 12px; font-size: 1.35rem; font-weight: 850; letter-spacing: -.035em; }
 .xg-logo__mark { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid rgba(233,189,77,.42); border-radius: 10px; color: var(--xg-gold-soft); background: linear-gradient(145deg, rgba(233,189,77,.18), rgba(57,215,195,.06)); box-shadow: inset 0 0 18px rgba(233,189,77,.08); }
 .xg-logo small { color: var(--xg-muted); font-size: .64rem; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
@@ -33,11 +51,11 @@ body.page-home-new {
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: #fff; }
 .site-nav .nav-cta { padding: 10px 15px; border: 1px solid rgba(233,189,77,.42); border-radius: 10px; color: #101114; background: linear-gradient(135deg, var(--xg-gold), var(--xg-gold-soft)); }
 
-.os-shell { width: min(var(--xg-max), calc(100% - 40px)); margin: 0 auto; }
-.os-hero { min-height: 720px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 64px; padding: 82px 0 72px; }
+.os-shell { width: min(var(--xg-max), calc(100% - 64px)); margin: 0 auto; }
+.os-hero { min-height: 720px; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(420px, .88fr); align-items: center; gap: clamp(56px, 5vw, 104px); padding: 82px 0 72px; }
 .os-kicker { display: inline-flex; align-items: center; gap: 9px; color: var(--xg-cyan); font-size: .76rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .os-kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; }
-.os-hero h1 { max-width: 750px; margin: 20px 0 22px; font-size: clamp(3rem, 6.2vw, 5.8rem); line-height: .98; letter-spacing: -.065em; }
+.os-hero h1 { max-width: 900px; margin: 20px 0 22px; font-size: clamp(3.2rem, 5.2vw, 5.35rem); line-height: 1; letter-spacing: -.038em; }
 .os-hero h1 em { color: var(--xg-gold-soft); font-style: normal; }
 .os-lead { max-width: 670px; margin: 0; color: #aeb9c6; font-size: clamp(1.06rem, 1.6vw, 1.27rem); line-height: 1.72; }
 .os-actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 34px; }
@@ -62,7 +80,7 @@ body.page-home-new {
 
 .os-section { padding: 96px 0; }
 .os-section--line { border-top: 1px solid var(--xg-line); }
-.section-heading { max-width: 760px; margin-bottom: 42px; }
+.section-heading { max-width: 920px; margin-bottom: 42px; }
 .section-heading h2 { margin: 14px 0 12px; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.08; letter-spacing: -.045em; }
 .section-heading p { margin: 0; color: var(--xg-muted); font-size: 1.06rem; line-height: 1.7; }
 .problem-grid, .module-grid, .plan-grid, .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
