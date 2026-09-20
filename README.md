@@ -1,17 +1,21 @@
-# XGreat | Grupo XGR
+# XGreat OS | Operação digital para negócios
 
-Repositório oficial do site institucional da **XGreat**, marca principal que organiza as frentes do **Grupo XGR**.
+Repositório oficial da **XGreat**, operação digital que conecta presença, captação, CRM, automação, inteligência e integrações.
 
 Site em produção: **https://xgreat.com.br**
 
 ## Visão geral
 
-A XGreat nasce como uma estrutura digital voltada para criação de presença online, implantação técnica, automação e leitura operacional para negócios que precisam sair do improviso.
+A XGreat organiza a operação digital de pequenas empresas para que contatos sejam captados, acompanhados e medidos com menos improviso.
 
-O projeto hoje apresenta duas frentes principais:
+O produto central é o **XGreat OS**, organizado em seis módulos:
 
-- **XGR Digital**: criação de sites, landing pages, estrutura comercial digital, domínio, DNS, e-mail profissional e implantação técnica.
-- **XGR Automação & BI**: automação de processos, dashboards, relatórios, integração de rotinas e leitura gerencial por dados.
+- Presença;
+- Captação;
+- Comercial;
+- Automação;
+- Inteligência;
+- Integrações.
 
 ## Objetivo do site
 
@@ -28,6 +32,7 @@ Este site funciona como base institucional e portfólio da XGreat, reunindo:
 ## Páginas principais
 
 - `index.html` - página inicial da XGreat.
+- `planos.html` - planos, limites e regras comerciais do XGreat OS.
 - `automacao.html` - soluções digitais, automação e BI.
 - `projetos.html` - projetos, cases e trabalhos publicados.
 - `sobre.html` - apresentação institucional.
@@ -91,13 +96,11 @@ A base institucional já está publicada, indexável e funcional. As próximas e
 
 ## Direção estratégica
 
-A XGreat não é apenas um site isolado. A proposta é construir uma base de grupo digital com frentes independentes, começando por presença digital, automação e inteligência operacional.
-
-O foco é simples: transformar estrutura técnica em solução real para negócios.
+Diagnosticar, implantar, operar e evoluir a estrutura digital do cliente. As competências internas de digital, automação e BI funcionam como bastidores de um único produto comercial.
 
 ## Autor
 
 **Rafael Lima**  
 GitHub: [@rafaelxgr](https://github.com/rafaelxgr)  
 Site: [xgreat.com.br](https://xgreat.com.br)  
-E-mail: rafael@xgreat.com.br
+E-mail: xgreat@xgreat.com.br
