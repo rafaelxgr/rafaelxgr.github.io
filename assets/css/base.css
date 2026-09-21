@@ -243,8 +243,8 @@ body.page-projetos .case-mini-link:hover {
 }
 .social-dock__link:hover { transform: translateY(-3px); }
 .social-dock__link svg { width: 27px; height: 27px; display: block; }
+.social-dock__link img { width: 30px; height: 30px; display: block; object-fit: contain; }
 .social-dock__link--whatsapp { color: #25d366; border-color: rgba(37,211,102,.34); }
-.social-dock__link--whatsapp svg { fill: currentColor; }
 .social-dock__link--whatsapp:hover { border-color: rgba(37,211,102,.75); box-shadow: 0 12px 30px rgba(37,211,102,.16); }
 .social-dock__link--instagram { color: #f2b6ff; border-color: rgba(214,91,255,.3); }
 .social-dock__link--instagram svg { fill: none; stroke: currentColor; stroke-width: 1.8; }
@@ -254,4 +254,5 @@ body.page-projetos .case-mini-link:hover {
   .social-dock { right: 14px; bottom: 14px; gap: 8px; }
   .social-dock__link { width: 48px; height: 48px; border-radius: 14px; }
   .social-dock__link svg { width: 25px; height: 25px; }
+  .social-dock__link img { width: 28px; height: 28px; }
 }
