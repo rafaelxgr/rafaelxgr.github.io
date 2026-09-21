@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMDZW6X0LS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-ZMDZW6X0LS');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Solicitar orçamento | XGreat OS</title>
+  <meta name="description" content="Conte brevemente o que sua empresa precisa e envie sua solicitação de orçamento para a XGreat OS.">
+  <link rel="canonical" href="https://xgreat.com.br/orcamento.html">
+  <meta name="theme-color" content="#050912">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/xgreat-os.css?v=2">
+</head>
+<body class="page-os page-quote">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="xg-logo" href="index.html" aria-label="XGreat OS — início"><span class="xg-logo__mark">X</span><span>XGreat <small>Operation System</small></span></a>
+      <nav class="site-nav" aria-label="Navegação principal"><a href="index.html#modulos">Soluções</a><a href="projetos.html">Cases</a><a href="planos.html">Planos</a><a href="sobre.html">Sobre</a><a class="nav-cta" href="diagnostico-xgreat.html">Fazer check-up</a></nav>
+    </div>
+  </header>
+
+  <main class="quote-main">
+    <div class="os-shell quote-layout">
+      <section class="quote-intro">
+        <span class="os-kicker">Solicitar orçamento</span>
+        <h1>Conte o que sua empresa precisa.</h1>
+        <p class="os-lead">Leva menos de dois minutos. Suas respostas serão organizadas e enviadas diretamente para o WhatsApp da XGreat.</p>
+        <div class="quote-points" aria-label="Como funciona">
+          <div><b>01</b><span><strong>Você descreve o cenário</strong><small>Sem reunião desnecessária ou formulário interminável.</small></span></div>
+          <div><b>02</b><span><strong>Analisamos a necessidade</strong><small>Identificamos o caminho e o escopo mais adequado.</small></span></div>
+          <div><b>03</b><span><strong>Retornamos pelo WhatsApp</strong><small>Com as perguntas certas e o próximo passo.</small></span></div>
+        </div>
+      </section>
+
+      <section class="quote-panel" aria-labelledby="quote-title">
+        <div class="quote-panel__head"><span id="quote-title">Dados iniciais</span><small>Campos com * são obrigatórios</small></div>
+        <form id="quote-form" class="quote-form" novalidate>
+          <div class="quote-grid">
+            <label class="quote-field"><span>Seu nome *</span><input type="text" name="nome" autocomplete="name" maxlength="80" required placeholder="Como podemos chamar você?"></label>
+            <label class="quote-field"><span>Empresa *</span><input type="text" name="empresa" autocomplete="organization" maxlength="100" required placeholder="Nome da empresa ou negócio"></label>
+          </div>
+          <label class="quote-field"><span>WhatsApp *</span><input type="tel" name="telefone" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="(11) 99999-9999"></label>
+          <label class="quote-field"><span>O que você precisa? *</span>
+            <select name="interesse" required>
+              <option value="">Selecione uma opção</option>
+              <option>Site ou landing page</option>
+              <option>Google e presença digital</option>
+              <option>CRM e organização comercial</option>
+              <option>Automação e integrações</option>
+              <option>XGreat OS — operação mensal</option>
+              <option>Check-up Digital</option>
+              <option>Outro / ainda não sei</option>
+            </select>
+          </label>
+          <label class="quote-field"><span>Descreva o cenário *</span><textarea name="descricao" rows="5" maxlength="900" required placeholder="Explique brevemente o que existe hoje, o principal problema e o resultado que você busca."></textarea><small><span id="quote-count">0</span>/900</small></label>
+          <label class="quote-field"><span>Site ou Instagram <em>opcional</em></span><input type="text" name="link" inputmode="url" maxlength="180" placeholder="Cole o link ou informe o @"></label>
+          <label class="quote-consent"><input type="checkbox" name="consentimento" required><span>Autorizo o contato da XGreat sobre esta solicitação. *</span></label>
+          <p class="quote-error" id="quote-error" role="alert" aria-live="polite"></p>
+          <button class="os-btn os-btn--primary quote-submit" type="submit">Enviar solicitação pelo WhatsApp</button>
+          <p class="quote-note">Ao enviar, o WhatsApp será aberto com suas respostas prontas. Revise e toque em enviar para concluir.</p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="os-footer"><div class="os-shell os-footer__inner"><span>© 2023–2026 XGreat. Operação digital para negócios reais.</span><nav><a href="privacidade.html">Privacidade</a><a href="cookies.html">Cookies</a><a href="contato.html">Contato</a><a href="https://www.instagram.com/xgreat.os" target="_blank" rel="noopener">Instagram</a></nav></div></footer>
+  <script src="assets/js/orcamento.js" defer></script>
+</body>
+</html>
