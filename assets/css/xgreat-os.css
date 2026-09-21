@@ -244,3 +244,20 @@ body.page-projetos .os-footer { margin-top: 6px; }
   body.page-projetos .hero-actions .btn { width: 100%; }
   body.page-projetos .section { padding: 42px 0 70px !important; }
 }
+
+/* Formulário de orçamento no fim da home */
+.home-quote { padding-bottom: 110px; }
+.home-quote__layout { display: grid; grid-template-columns: minmax(0,.78fr) minmax(520px,1.22fr); gap: clamp(46px,6vw,104px); align-items: start; }
+.home-quote__copy { position: sticky; top: 132px; padding-top: 18px; }
+.home-quote__copy h2 { margin: 18px 0 16px; font-family: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif; font-size: clamp(2.5rem,4.5vw,4.6rem); line-height: 1; letter-spacing: -.045em; }
+.home-quote__copy p { max-width: 560px; margin: 0; color: var(--xg-muted); font-size: 1.08rem; line-height: 1.7; }
+.home-quote__instagram { display: inline-flex; margin-top: 24px; color: var(--xg-cyan); font-weight: 700; }
+.quote-panel--compact { padding: clamp(24px,3vw,36px); }
+@media (max-width: 980px) {
+  .home-quote__layout { grid-template-columns: 1fr; }
+  .home-quote__copy { position: static; padding-top: 0; }
+}
+@media (max-width: 680px) {
+  .home-quote { padding-bottom: 76px; }
+  .home-quote__copy h2 { font-size: clamp(2.5rem,13vw,3.6rem); }
+}

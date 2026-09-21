@@ -27,8 +27,8 @@
 
     const data = new FormData(form);
     const params = new URLSearchParams(window.location.search);
-    const source = params.get('utm_source') || 'site';
-    const campaign = params.get('utm_campaign') || 'orcamento';
+    const source = params.get('utm_source') || form.dataset.source || 'site';
+    const campaign = params.get('utm_campaign') || form.dataset.campaign || 'orcamento';
     const link = data.get('link').trim() || 'Não informado';
     const message = [
       '*NOVA SOLICITAÇÃO DE ORÇAMENTO — XGREAT OS*',

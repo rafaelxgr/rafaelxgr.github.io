@@ -218,3 +218,40 @@ body.page-projetos .case-mini-link:hover {
   object-fit: cover;
   -webkit-text-fill-color: initial;
 }
+
+/* Canais de contato flutuantes */
+.social-dock {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 10000;
+  display: grid;
+  gap: 10px;
+}
+.social-dock__link {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 16px;
+  color: #fff;
+  background: rgba(7,15,26,.92);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+  backdrop-filter: blur(12px);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.social-dock__link:hover { transform: translateY(-3px); }
+.social-dock__link svg { width: 27px; height: 27px; display: block; }
+.social-dock__link--whatsapp { color: #25d366; border-color: rgba(37,211,102,.34); }
+.social-dock__link--whatsapp svg { fill: currentColor; }
+.social-dock__link--whatsapp:hover { border-color: rgba(37,211,102,.75); box-shadow: 0 12px 30px rgba(37,211,102,.16); }
+.social-dock__link--instagram { color: #f2b6ff; border-color: rgba(214,91,255,.3); }
+.social-dock__link--instagram svg { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.social-dock__link--instagram circle:last-child { fill: currentColor; stroke: none; }
+.social-dock__link--instagram:hover { border-color: rgba(214,91,255,.72); box-shadow: 0 12px 30px rgba(214,91,255,.14); }
+@media (max-width: 600px) {
+  .social-dock { right: 14px; bottom: 14px; gap: 8px; }
+  .social-dock__link { width: 48px; height: 48px; border-radius: 14px; }
+  .social-dock__link svg { width: 25px; height: 25px; }
+}
