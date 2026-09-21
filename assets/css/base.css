@@ -53,6 +53,10 @@ body.page-sobre {
 }
 
 .brand-link {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
   font-size: clamp(2.7rem, 5vw, 4.35rem) !important;
   letter-spacing: .11em !important;
   background-image:
@@ -204,4 +208,13 @@ body.page-projetos .case-mini-link:hover {
 @media (max-width: 940px) {
   .cards-3 { grid-template-columns: 1fr !important; }
   .section { padding-left: 18px !important; padding-right: 18px !important; }
+}
+
+.brand-link__mark {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 12px;
+  object-fit: cover;
+  -webkit-text-fill-color: initial;
 }
