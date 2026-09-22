@@ -79,6 +79,7 @@
   };
 
   const banner = document.createElement('section');
+  banner.id = 'xgrCookieConsent';
   banner.className = 'cookie-consent';
   banner.setAttribute('role', 'dialog');
   banner.setAttribute('aria-label', 'Preferências de cookies');
@@ -113,9 +114,13 @@
     const settings = document.createElement('button');
     settings.className = 'cookie-settings-link';
     settings.type = 'button';
+    settings.setAttribute('aria-controls', 'xgrCookieConsent');
     settings.textContent = 'Preferências';
-    settings.addEventListener('click', showBanner);
     nav.appendChild(settings);
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.cookie-settings-link')) showBanner();
   });
 
   if (getChoice() === 'accepted') loadAnalytics();
