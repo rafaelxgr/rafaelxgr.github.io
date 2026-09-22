@@ -116,7 +116,11 @@
     settings.type = 'button';
     settings.setAttribute('aria-controls', 'xgrCookieConsent');
     settings.textContent = 'Preferências';
-    nav.appendChild(settings);
+    const cookieLink = Array.from(nav.querySelectorAll('a')).find((link) =>
+      (link.getAttribute('href') || '').endsWith('cookies.html')
+    );
+    if (cookieLink) cookieLink.insertAdjacentElement('afterend', settings);
+    else nav.appendChild(settings);
   });
 
   document.addEventListener('click', (event) => {
