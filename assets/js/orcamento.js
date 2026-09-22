@@ -1,27 +1,33 @@
 (() => {
-  const form = document.querySelector('#quote-form');
+  const form = document.getElementById('quote-form');
   if (!form) return;
 
-  const description = form.elements.descricao;
-  const counter = document.querySelector('#quote-count');
-  const error = document.querySelector('#quote-error');
-  const phone = form.elements.telefone;
+  const description = form.querySelector('textarea[name="descricao"]');
+  const count = document.getElementById('quote-count');
+  const error = document.getElementById('quote-error');
+  const phone = form.querySelector('input[name="telefone"]');
+  const email = form.querySelector('input[name="email"]');
 
-  description.addEventListener('input', () => { counter.textContent = description.value.length; });
-  phone.addEventListener('input', () => {
-    const digits = phone.value.replace(/\D/g, '').slice(0, 11);
-    if (digits.length <= 2) phone.value = digits;
-    else if (digits.length <= 7) phone.value = `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
-    else phone.value = `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
-  });
+  const updateCount = () => {
+    if (count && description) count.textContent = description.value.length;
+  };
+
+  description?.addEventListener('input', updateCount);
+  updateCount();
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     error.textContent = '';
 
     if (!form.checkValidity()) {
-      error.textContent = 'Preencha os campos obrigatórios antes de continuar.';
       form.reportValidity();
+      error.textContent = 'Preencha os campos obrigatórios antes de continuar.';
+      return;
+    }
+
+    if (!phone?.value.trim() && !email?.value.trim()) {
+      error.textContent = 'Informe ao menos um WhatsApp ou e-mail para contato.';
+      (phone || email)?.focus();
       return;
     }
 
@@ -30,25 +36,40 @@
     const source = params.get('utm_source') || form.dataset.source || 'site';
     const campaign = params.get('utm_campaign') || form.dataset.campaign || 'orcamento';
     const link = data.get('link').trim() || 'Não informado';
-    const message = [
-      '*NOVA SOLICITAÇÃO DE ORÇAMENTO — XGREAT OS*',
+    const contactEmail = data.get('email').trim() || 'Não informado';
+    const contactPhone = data.get('telefone').trim() || 'Não informado';
+    const channel = event.submitter?.dataset.channel || 'whatsapp';
+
+    const lines = [
+      'NOVA SOLICITAÇÃO DE ORÇAMENTO — XGREAT OS',
       '',
-      `*Nome:* ${data.get('nome').trim()}`,
-      `*Empresa:* ${data.get('empresa').trim()}`,
-      `*WhatsApp:* ${data.get('telefone').trim()}`,
-      `*Interesse:* ${data.get('interesse')}`,
-      `*Site/Instagram:* ${link}`,
+      `Nome: ${data.get('nome').trim()}`,
+      `Empresa: ${data.get('empresa').trim()}`,
+      `WhatsApp: ${contactPhone}`,
+      `E-mail: ${contactEmail}`,
+      `Interesse: ${data.get('interesse')}`,
+      `Site/Instagram: ${link}`,
       '',
-      '*Cenário informado:*',
+      'Cenário informado:',
       data.get('descricao').trim(),
       '',
-      `_Origem: ${source} · Campanha: ${campaign}_`
-    ].join('\n');
+      `Origem: ${source} · Campanha: ${campaign}`
+    ];
 
     if (typeof window.gtag === 'function') {
-      window.gtag('event', 'generate_lead', { event_category: 'orcamento', event_label: source });
+      window.gtag('event', 'generate_lead', {
+        event_category: 'orcamento',
+        event_label: `${source}-${channel}`
+      });
     }
 
-    window.location.href = `https://wa.me/5511912131177?text=${encodeURIComponent(message)}`;
+    if (channel === 'email') {
+      const subject = `Orçamento XGreat — ${data.get('empresa').trim()}`;
+      window.location.href = `mailto:contato@xgreat.com.br?cc=xgreat@xgreat.com.br&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      return;
+    }
+
+    const whatsappMessage = lines.map((line, index) => index === 0 ? `*${line}*` : line).join('\n');
+    window.location.href = `https://wa.me/5511912131177?text=${encodeURIComponent(whatsappMessage)}`;
   });
 })();

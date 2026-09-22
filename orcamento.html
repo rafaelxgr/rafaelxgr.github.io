@@ -9,15 +9,15 @@
   <meta name="description" content="Conte brevemente o que sua empresa precisa e envie sua solicitação de orçamento para a XGreat OS.">
   <link rel="canonical" href="https://xgreat.com.br/orcamento.html">
   <meta name="theme-color" content="#050912">
-  <link rel="icon" type="image/png" href="/media/social/xgreat/branding/FaviconWhite_XGR_OS.png?v=3"><link rel="apple-touch-icon" href="/media/social/xgreat/branding/FaviconWhite_XGR_OS.png?v=3">
-  <link rel="stylesheet" href="assets/css/base.css?v=16">
-  <link rel="stylesheet" href="assets/css/xgreat-os.css?v=3">
+  <link rel="icon" type="image/png" href="/favicon.png?v=4"><link rel="apple-touch-icon" href="/favicon.png?v=4">
+  <link rel="stylesheet" href="assets/css/base.css?v=17">
+  <link rel="stylesheet" href="assets/css/xgreat-os.css?v=5">
 </head>
 <body class="page-os page-quote">
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="xg-logo" href="index.html" aria-label="XGreat OS — início"><span class="xg-logo__mark" aria-hidden="true"><img src="/media/social/xgreat/branding/FaviconWhite_XGR_OS.png?v=3" alt="" width="34" height="34"></span><span>XGreat <small>Operation System</small></span></a>
-      <nav class="site-nav" aria-label="Navegação principal"><a href="index.html#modulos">Soluções</a><a href="projetos.html">Cases</a><a href="planos.html">Planos</a><a href="sobre.html">Sobre</a><a class="nav-cta" href="diagnostico-xgreat.html">Fazer check-up</a></nav>
+      <a class="xg-logo" href="index.html" aria-label="XGreat OS — início"><span class="xg-logo__mark" aria-hidden="true"><img src="/favicon.png?v=4" alt="" width="34" height="34"></span><span>XGreat <small>Operation System</small></span></a>
+      <nav class="site-nav" aria-label="Navegação principal"><a href="automacao.html">Soluções</a><a href="planos.html">Planos</a><a href="projetos.html">Cases</a><a href="sobre.html">Sobre</a><a class="nav-cta" href="diagnostico-xgreat.html">Fazer check-up</a></nav>
     </div>
   </header>
 
@@ -41,7 +41,7 @@
             <label class="quote-field"><span>Seu nome *</span><input type="text" name="nome" autocomplete="name" maxlength="80" required placeholder="Como podemos chamar você?"></label>
             <label class="quote-field"><span>Empresa *</span><input type="text" name="empresa" autocomplete="organization" maxlength="100" required placeholder="Nome da empresa ou negócio"></label>
           </div>
-          <label class="quote-field"><span>WhatsApp *</span><input type="tel" name="telefone" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="(11) 99999-9999"></label>
+          <label class="quote-field"><span>WhatsApp <em>opcional</em></span><input type="tel" name="telefone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="(11) 99999-9999"></label><label class="quote-field"><span>E-mail corporativo <em>opcional</em></span><input type="email" name="email" autocomplete="email" maxlength="140" placeholder="nome@empresa.com.br"></label>
           <label class="quote-field"><span>O que você precisa? *</span>
             <select name="interesse" required>
               <option value="">Selecione uma opção</option>
@@ -58,8 +58,7 @@
           <label class="quote-field"><span>Site ou Instagram <em>opcional</em></span><input type="text" name="link" inputmode="url" maxlength="180" placeholder="Cole o link ou informe o @"></label>
           <label class="quote-consent"><input type="checkbox" name="consentimento" required><span>Autorizo o contato da XGreat sobre esta solicitação. *</span></label>
           <p class="quote-error" id="quote-error" role="alert" aria-live="polite"></p>
-          <button class="os-btn os-btn--primary quote-submit" type="submit">Enviar solicitação pelo WhatsApp</button>
-          <p class="quote-note">Ao enviar, o WhatsApp será aberto com suas respostas prontas. Revise e toque em enviar para concluir.</p>
+          <div class="quote-actions"><button class="os-btn os-btn--primary quote-submit" type="submit" data-channel="whatsapp">Enviar pelo WhatsApp</button><button class="os-btn quote-submit quote-submit--email" type="submit" data-channel="email">Enviar por e-mail</button></div><p class="quote-note">Informe ao menos WhatsApp ou e-mail. Você escolhe por qual canal enviar a solicitação.</p>
         </form>
       </section>
     </div>
@@ -71,5 +70,5 @@
   <a class="social-dock__link social-dock__link--instagram" href="https://www.instagram.com/xgreat.os/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram da XGreat" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.25"></circle><circle cx="17.4" cy="6.7" r="1"></circle></svg></a>
   <a class="social-dock__link social-dock__link--whatsapp" href="https://wa.me/5511912131177?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20XGreat%20e%20quero%20falar%20sobre%20minha%20opera%C3%A7%C3%A3o%20digital." target="_blank" rel="noopener noreferrer" aria-label="Falar com a XGreat pelo WhatsApp" title="WhatsApp"><img src="/media/social/xgreat/branding/Whats_XGR.png?v=1" alt="" width="30" height="30" aria-hidden="true"></a>
 </div>
-</body>
+<script src="assets/js/site-ui.js?v=1" defer></script></body>
 </html>
