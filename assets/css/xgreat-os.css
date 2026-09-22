@@ -438,3 +438,139 @@ body.page-projetos .os-footer { margin-top: 6px; }
   .xg-core::before, .xg-core__links circle, .xg-core__center::before, .xg-core__center::after,
   .xg-core__pulse, .xg-core__node, .xg-core__signal, .xg-core__footer i { animation: none; }
 }
+
+
+/* Raven energy core */
+.xg-core__center {
+  width: 38%;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(18,58,68,.72), rgba(5,14,26,.96) 66%),
+    linear-gradient(145deg, rgba(57,215,195,.05), transparent);
+  box-shadow:
+    0 0 78px rgba(57,215,195,.2),
+    0 0 140px rgba(57,215,195,.06),
+    inset 0 0 46px rgba(57,215,195,.1);
+}
+.xg-core__raven {
+  position: relative;
+  z-index: 3;
+  width: 58%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  margin: -2% 0 -3%;
+  isolation: isolate;
+}
+.xg-core__raven::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 12%,
+    rgba(66,255,225,.72) 18%,
+    transparent 25% 48%,
+    rgba(233,189,77,.48) 55%,
+    transparent 63% 84%,
+    rgba(66,255,225,.46) 91%,
+    transparent
+  );
+  -webkit-mask: radial-gradient(circle, transparent 59%, #000 61% 64%, transparent 66%);
+  mask: radial-gradient(circle, transparent 59%, #000 61% 64%, transparent 66%);
+  filter: blur(.2px) drop-shadow(0 0 7px rgba(57,215,195,.4));
+  animation: xg-raven-orbit 8.5s linear infinite;
+}
+.xg-core__raven::after {
+  content: "";
+  position: absolute;
+  inset: 3%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(65,250,222,.22), rgba(57,215,195,.06) 48%, transparent 72%);
+  filter: blur(8px);
+  animation: xg-raven-aura 3.8s ease-in-out infinite;
+}
+.xg-core__raven img {
+  position: relative;
+  z-index: 2;
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  transform-origin: 50% 56%;
+  filter:
+    brightness(1.18)
+    contrast(1.1)
+    drop-shadow(0 0 6px rgba(255,255,255,.32))
+    drop-shadow(0 0 13px rgba(57,215,195,.3))
+    drop-shadow(0 0 25px rgba(57,215,195,.14));
+  animation: xg-raven-breathe 4.6s cubic-bezier(.45,0,.35,1) infinite;
+}
+.xg-core__raven-energy {
+  position: absolute;
+  inset: 11%;
+  z-index: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(90,255,228,.2);
+  box-shadow:
+    0 -28px 0 -26px rgba(106,255,233,.9),
+    29px -5px 0 -27px rgba(233,189,77,.95),
+    -25px 18px 0 -27px rgba(106,255,233,.78);
+  animation: xg-raven-energy 5.4s ease-in-out infinite;
+}
+.xg-core__raven-scan {
+  position: absolute;
+  z-index: 4;
+  top: 4%;
+  bottom: 4%;
+  left: -54%;
+  width: 24%;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent, rgba(195,255,248,.16), rgba(255,255,255,.86), rgba(90,255,229,.2), transparent);
+  filter: blur(3px);
+  mix-blend-mode: screen;
+  transform: skewX(-14deg);
+  opacity: 0;
+  animation: xg-raven-scan 5.2s ease-in-out infinite;
+  pointer-events: none;
+}
+.xg-core__center strong { margin-top: -1px; text-shadow: 0 0 13px rgba(57,215,195,.24); }
+@keyframes xg-raven-breathe {
+  0%, 100% {
+    transform: scale(.96) translateY(1px);
+    filter: brightness(1.08) contrast(1.08) drop-shadow(0 0 5px rgba(255,255,255,.24)) drop-shadow(0 0 11px rgba(57,215,195,.24)) drop-shadow(0 0 20px rgba(57,215,195,.1));
+  }
+  48% {
+    transform: scale(1.055) translateY(-2px);
+    filter: brightness(1.34) contrast(1.14) drop-shadow(0 0 8px rgba(255,255,255,.48)) drop-shadow(0 0 18px rgba(57,215,195,.48)) drop-shadow(0 0 34px rgba(57,215,195,.2));
+  }
+}
+@keyframes xg-raven-orbit { to { transform: rotate(360deg); } }
+@keyframes xg-raven-aura {
+  50% { transform: scale(1.16); opacity: .62; filter: blur(13px); }
+}
+@keyframes xg-raven-energy {
+  0%, 100% { transform: rotate(-8deg) scale(.94); opacity: .48; }
+  50% { transform: rotate(9deg) scale(1.08); opacity: 1; }
+}
+@keyframes xg-raven-scan {
+  0%, 18% { left: -54%; opacity: 0; }
+  27% { opacity: .85; }
+  55% { left: 128%; opacity: .34; }
+  58%, 100% { left: 128%; opacity: 0; }
+}
+@media (max-width: 620px) {
+  .xg-core__center { width: 42%; }
+  .xg-core__raven { width: 61%; }
+  .xg-core__center strong { font-size: .72rem; }
+  .xg-core__center small { font-size: .38rem; letter-spacing: .09em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xg-core__raven::before,
+  .xg-core__raven::after,
+  .xg-core__raven img,
+  .xg-core__raven-energy,
+  .xg-core__raven-scan { animation: none; }
+  .xg-core__raven-scan { display: none; }
+}
