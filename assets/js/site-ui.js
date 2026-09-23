@@ -1,4 +1,69 @@
 (() => {
+  document.querySelectorAll('.site-header').forEach((header, index) => {
+    const inner = header.querySelector('.site-header__inner');
+    const navigation = header.querySelector('.site-nav');
+    if (!inner || !navigation || inner.querySelector('.mobile-menu-toggle')) return;
+
+    const panelId = `mobileMenu-${index + 1}`;
+    const toggle = document.createElement('button');
+    toggle.className = 'mobile-menu-toggle';
+    toggle.type = 'button';
+    toggle.setAttribute('aria-label', 'Abrir menu');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', panelId);
+    toggle.innerHTML = '<span></span><span></span><span></span>';
+
+    const panel = document.createElement('nav');
+    panel.className = 'mobile-menu-panel';
+    panel.id = panelId;
+    panel.setAttribute('aria-label', 'Menu mobile');
+
+    navigation.querySelectorAll('a:not(.nav-cta)').forEach((link) => {
+      panel.appendChild(link.cloneNode(true));
+    });
+
+    if (!panel.querySelector('a[href="contato.html"]')) {
+      const contact = document.createElement('a');
+      contact.href = 'contato.html';
+      contact.textContent = 'Contato';
+      panel.appendChild(contact);
+    }
+
+    const closeMenu = () => {
+      header.classList.remove('mobile-menu-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu');
+    };
+
+    toggle.addEventListener('click', () => {
+      const opening = !header.classList.contains('mobile-menu-open');
+      header.classList.toggle('mobile-menu-open', opening);
+      toggle.setAttribute('aria-expanded', String(opening));
+      toggle.setAttribute('aria-label', opening ? 'Fechar menu' : 'Abrir menu');
+    });
+
+    panel.addEventListener('click', (event) => {
+      if (event.target.closest('a')) closeMenu();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!header.contains(event.target)) closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980) closeMenu();
+    }, { passive: true });
+
+    inner.appendChild(toggle);
+    inner.appendChild(panel);
+  });
+})();
+
+(() => {
   const button = document.createElement('button');
   button.className = 'back-to-top';
   button.type = 'button';
