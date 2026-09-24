@@ -1,0 +1,15 @@
+/* Keep complete portfolio artwork visible, including portrait mockups. */
+body.page-projetos .case-thumb { width: 100%; }
+body.page-projetos .case-thumb img { object-fit: contain; background: #050814; }
+body.page-projetos .case-thumb:hover img { transform: none; }
+body.page-projetos .modal { z-index: 11000; }
+body.page-projetos .modal__dialog { max-height: calc(100dvh - 24px); overflow-y: auto; }
+body.page-projetos .modal__image { max-height: calc(100dvh - 150px); height: auto; object-fit: contain; }
+body.page-projetos .modal__caption { margin: 0; padding: 14px 20px; color: #e4ebf4; font-size: .9rem; }
+body.page-projetos .modal__status { padding: 12px 20px; margin: 0; color: #ffe08a; }
+body.page-projetos .modal__status:empty { display: none; }
+body.page-projetos .modal__original { display: inline-block; margin: 0 20px 16px; color: #39d7c3; }
+body.page-projetos .modal__image[hidden] { display: none; }
+body.page-projetos .case-thumb:focus-visible,
+body.page-projetos .modal button:focus-visible,
+body.page-projetos .modal a:focus-visible { outline: 3px solid #39d7c3; outline-offset: 3px; }
