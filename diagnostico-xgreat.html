@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diagnóstico automático gratuito | XGreat</title>
+  <title>Triagem gratuita do site | XGreat OS</title>
   <meta name="description" content="Triagem automática gratuita do site para identificar sinais iniciais de estrutura, SEO, rastreamento e conversão." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xgreat.com.br/diagnostico-xgreat.html" />
@@ -25,7 +25,8 @@
       <div class="diagnostic-card">
         <span class="eyebrow">Triagem automática gratuita</span>
         <h1>Faça uma leitura inicial da estrutura do seu site.</h1>
-        <p class="diagnostic-lead">Informe o endereço do site para gerar uma análise automática. Esta triagem não substitui o Check-up Digital manual. O e-mail é opcional e serve apenas para contato comercial, caso você queira aprofundar os pontos encontrados.</p>
+        <p class="diagnostic-lead">Uma ferramenta procura sinais técnicos no site informado. É grátis, não inclui revisão humana nem correções e pode deixar passar problemas. Para cruzar seus canais e receber prioridades com análise humana, conheça o Check-up Digital por R$ 249.</p>
+        <p><a href="checkup-digital.html#comparar">Entenda a diferença entre triagem gratuita e Check-up pago →</a></p>
         <div class="diagnostic-points">
           <div class="diagnostic-point"><strong>Análise automática</strong>O sistema verifica estrutura, SEO, rastreamento, políticas e sinais básicos de conversão.</div>
           <div class="diagnostic-point"><strong>Relatório na tela</strong>O resultado aparece aqui mesmo, com pontos fortes, falhas e prioridades.</div>
@@ -36,7 +37,7 @@
 
       <aside class="diagnostic-card">
         <span class="eyebrow">Analisar agora</span>
-        <h2>Enviar site para diagnóstico</h2>
+        <h2>Fazer triagem gratuita</h2>
         <p class="diagnostic-sub">Use o domínio principal do negócio. Exemplo: empresa.com.br</p>
         <form class="diagnostic-form" id="diagnosticForm" novalidate>
           <div class="diagnostic-field">
@@ -50,7 +51,7 @@
             <small>Opcional. Serve apenas para contato caso você queira ajuda ou orçamento.</small>
           </div>
           <div class="diagnostic-actions">
-            <button class="diagnostic-btn btn-diagnostic-primary" id="submitBtn" type="submit">Gerar diagnóstico</button>
+            <button class="diagnostic-btn btn-diagnostic-primary" id="submitBtn" type="submit">Gerar triagem gratuita</button>
             <button class="diagnostic-btn btn-diagnostic-secondary" id="clearBtn" type="button">Limpar</button>
           </div>
         </form>
@@ -59,7 +60,7 @@
     </section>
 
     <section class="diagnostic-card result-section" id="resultSection">
-      <h2>Resultado do diagnóstico</h2>
+      <h2>Resultado da triagem automática</h2>
       <p class="diagnostic-sub" id="resultIntro">A análise retornada pelo fluxo aparecerá aqui.</p>
       <div class="score-row">
         <div class="score-circle" id="scoreCircle"><div class="score-number"><strong id="scoreValue">0</strong><span id="scorePercent">0/100</span></div></div>
@@ -76,13 +77,15 @@
       <div class="diagnostic-actions" id="resultActions">
         <a class="diagnostic-btn btn-diagnostic-whatsapp" id="whatsappSummary" href="#" target="_blank" rel="noopener noreferrer">Quero ajuda e orçamento</a>
         <button class="diagnostic-btn btn-diagnostic-secondary" id="downloadTxt" type="button">Salvar resultado em TXT</button>
-        <button class="diagnostic-btn btn-diagnostic-secondary" id="copyDiagnosis" type="button">Copiar diagnóstico</button>
+        <button class="diagnostic-btn btn-diagnostic-secondary" id="copyDiagnosis" type="button">Copiar resultado</button>
         <button class="diagnostic-btn btn-diagnostic-secondary" id="toggleRaw" type="button">Ver JSON</button>
       </div>
       <pre class="raw-box" id="rawResult"></pre>
       <div class="diagnostic-note">Diagnóstico gerado automaticamente e limitado aos sinais técnicos acessíveis. O Check-up Digital manual revisa o contexto antes de qualquer proposta.</div>
     </section>
+    <section class="diagnostic-card" aria-labelledby="human-checkup"><span class="os-kicker">Quer ir além do resultado automático?</span><h2 id="human-checkup">Check-up Digital: análise humana por R$ 249.</h2><p class="diagnostic-lead">Revisamos site, Google, Instagram, WhatsApp e domínio, quando existentes. Você recebe por e-mail os problemas documentados, prioridades e o registro de até 3 correções simples, limitadas a 60 minutos no total.</p><p class="diagnostic-muted">Pagamento único para 1 empresa ou unidade. Sem obrigação de contratar mensalidade. A triagem gratuita não é um pré-requisito.</p><div class="diagnostic-actions"><a class="os-btn os-btn--primary" href="checkup-digital.html">Ver entregas e limites do Check-up · R$ 249</a></div></section>
   </main>
+  <footer class="os-footer"><div class="os-shell os-footer__inner"><span>© 2023–2026 XGreat.</span><nav><a href="checkup-digital.html">Check-up pago</a><a href="privacidade.html">Privacidade</a><a href="cookies.html">Cookies</a><a href="contato.html">Contato</a></nav></div></footer>
 
 <script>
 const WEBHOOK_URL = 'https://antigravity-project-n8n.yeb6bs.easypanel.host/webhook/diagnostico-site-final-xgr-v1';
@@ -108,7 +111,7 @@ function isValidDomain(value){
 }
 function showStatus(m,t){statusBox.textContent=m;statusBox.className='status-box visible'+(t?' '+t:'')}
 function hideStatus(){statusBox.textContent='';statusBox.className='status-box'}
-function setLoading(v){submitBtn.disabled=v;clearBtn.disabled=v;submitBtn.textContent=v?'Analisando...':'Gerar diagnóstico'}
+function setLoading(v){submitBtn.disabled=v;clearBtn.disabled=v;submitBtn.textContent=v?'Analisando...':'Gerar triagem gratuita'}
 function getScore(d){const s=Number(d?.score??d?.pontuacao??d?.nota??d?.result?.score??0);return Number.isFinite(s)?Math.max(0,Math.min(100,Math.round(s))):0}
 function getLevel(d,s){const l=String(d?.level??d?.nivel??d?.status??d?.result?.level??'').toLowerCase();if(l)return l;if(s>=80)return'forte';if(s>=60)return'bom';if(s>=40)return'fraco';return'critico'}
 function labelLevel(l){const d=String(l||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(d.includes('forte'))return{cls:'forte',text:'Diagnóstico Forte'};if(d.includes('bom'))return{cls:'bom',text:'Diagnóstico Bom'};if(d.includes('fraco'))return{cls:'fraco',text:'Diagnóstico Fraco'};return{cls:'critico',text:'Diagnóstico Crítico'}}
@@ -117,11 +120,11 @@ function pickReport(d){return d?.aiReport||d?.report||d?.relatorio||d?.analysis|
 function escapeHtml(t){return String(t).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;')}
 function renderList(el,items,empty){const c=toArray(items);el.innerHTML=c.length?c.map(i=>`<li>${escapeHtml(String(i))}</li>`).join(''):`<li>${escapeHtml(empty)}</li>`}
 function buildWhatsappMessage(d){const r=pickReport(d),s=getScore(d),l=getLevel(d,s),url=d?.url||normalizeUrl(siteUrlInput.value),email=d?.email||leadEmailInput.value.trim(),p=toArray(r.priorities||d?.topPriorities||d?.prioridades||d?.missing).slice(0,5);return['Olá, fiz a triagem automática do meu site pela XGreat e quero entender os próximos passos.','',`Site analisado: ${url}`,email?`E-mail: ${email}`:'E-mail: não informado',`Nota: ${s}/100`,`Nível: ${l}`,'','Principais prioridades:',...(p.length?p.map(i=>`- ${i}`):['- Aguardando avaliação detalhada']),'','Quero avaliar o Check-up Digital manual ou um orçamento para os pontos encontrados.'].join('\n')}
-function buildTxt(d){const r=pickReport(d),s=getScore(d),l=getLevel(d,s),pos=toArray(r.positivePoints||r.pontosPositivos||d?.found),crit=toArray(r.criticalPoints||r.pontosCriticos||d?.missing),pri=toArray(r.priorities||d?.topPriorities||d?.prioridades),email=d?.email||leadEmailInput.value.trim();return['DIAGNÓSTICO AUTOMÁTICO XGREAT','======================','',`Site: ${d?.url||normalizeUrl(siteUrlInput.value)}`,`E-mail: ${email||'não informado'}`,`Nota: ${s}/100`,`Nível: ${l}`,'','RESUMO',r.headline||'Leitura inicial do cenário digital.',r.summary||d?.summary||d?.message||'','','PONTOS POSITIVOS',...(pos.length?pos.map(i=>`- ${i}`):['- Não informado']),'','PONTOS CRÍTICOS',...(crit.length?crit.map(i=>`- ${i}`):['- Não informado']),'','PRIORIDADES',...(pri.length?pri.map(i=>`- ${i}`):['- Não informado']),'','RECOMENDAÇÃO',r.commercialRecommendation||r.recomendacaoComercial||d?.recommendation||'Solicitar o Check-up Digital manual para revisar o contexto e definir a próxima etapa.','','Contato XGreat','WhatsApp: +55 11 91213-1177','Site: https://xgreat.com.br','','Gerado automaticamente pela ferramenta de diagnóstico da XGreat.'].join('\n')}
+function buildTxt(d){const r=pickReport(d),s=getScore(d),l=getLevel(d,s),pos=toArray(r.positivePoints||r.pontosPositivos||d?.found),crit=toArray(r.criticalPoints||r.pontosCriticos||d?.missing),pri=toArray(r.priorities||d?.topPriorities||d?.prioridades),email=d?.email||leadEmailInput.value.trim();return['TRIAGEM AUTOMÁTICA XGREAT OS','======================','',`Site: ${d?.url||normalizeUrl(siteUrlInput.value)}`,`E-mail: ${email||'não informado'}`,`Nota: ${s}/100`,`Nível: ${l}`,'','RESUMO',r.headline||'Leitura inicial do cenário digital.',r.summary||d?.summary||d?.message||'','','PONTOS POSITIVOS',...(pos.length?pos.map(i=>`- ${i}`):['- Não informado']),'','PONTOS CRÍTICOS',...(crit.length?crit.map(i=>`- ${i}`):['- Não informado']),'','PRIORIDADES',...(pri.length?pri.map(i=>`- ${i}`):['- Não informado']),'','RECOMENDAÇÃO',r.commercialRecommendation||r.recomendacaoComercial||d?.recommendation||'Solicitar o Check-up Digital manual para revisar o contexto e definir a próxima etapa.','','Contato XGreat','WhatsApp: +55 11 91213-1177','Site: https://xgreat.com.br','','Gerado automaticamente pela ferramenta de diagnóstico da XGreat.'].join('\n')}
 function renderResult(d){lastResult=d;const r=pickReport(d),s=getScore(d),l=getLevel(d,s),li=labelLevel(l),deg=Math.round((s/100)*360);resultSection.classList.add('visible');resultIntro.textContent=`Site analisado: ${d?.url||normalizeUrl(siteUrlInput.value)}`;scoreValue.textContent=s;scorePercent.textContent=`${s}/100`;scoreCircle.style.background=`conic-gradient(#c8a96b ${deg}deg, rgba(255,255,255,0.08) ${deg}deg)`;scoreBadge.className=`badge ${li.cls}`;scoreBadge.textContent=li.text;headline.textContent=r.headline||d?.headline||'Diagnóstico recebido com sucesso.';summary.textContent=r.summary||d?.summary||d?.message||'A análise automática foi concluída. Revise os pontos abaixo.';renderList(positiveList,r.positivePoints||r.pontosPositivos||d?.found,'Nenhum ponto positivo retornado pelo fluxo.');renderList(criticalList,r.criticalPoints||r.pontosCriticos||d?.missing,'Nenhum ponto crítico retornado pelo fluxo.');renderList(priorityList,r.priorities||r.prioridades||d?.topPriorities,'Nenhuma prioridade retornada pelo fluxo.');recommendation.textContent=r.commercialRecommendation||r.recomendacaoComercial||d?.recommendation||'Solicitar o Check-up Digital manual para revisar o contexto e definir a próxima etapa.';rawResult.textContent=JSON.stringify(d,null,2);rawResult.classList.remove('visible');whatsappSummary.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsappMessage(d))}`;resultSection.scrollIntoView({behavior:'smooth',block:'start'})}
-async function submitDiagnostic(e){e.preventDefault();hideStatus();const normalizedUrl=normalizeUrl(siteUrlInput.value),email=leadEmailInput.value.trim();if(!isValidDomain(normalizedUrl)){showStatus('Digite um domínio válido. Exemplo: empresa.com.br','error');return}setLoading(true);showStatus('Realizando a análise do seu site. Por favor, aguarde alguns instantes...','');const payload={url:normalizedUrl,email:email||'',source:'diagnostico-xgreat-html',page:window.location.href,submittedAt:new Date().toISOString()};try{const response=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});let data={};const textResponse=await response.text();try{data=textResponse?JSON.parse(textResponse):{}}catch(e){data={message:textResponse.substring(0,150)}}if(!response.ok||data?.success===false||(!data?.score&&!data?.aiReport&&!data?.level)){throw new Error('Devido ao nível de segurança do seu site, não foi possível gerar um diagnóstico automatizado. Caso queira uma avaliação, nos contate pelo Whatsapp.')}const finalData={...data,url:data.url||normalizedUrl,email:data.email||email};showStatus('Diagnóstico recebido com sucesso.','success');renderResult(finalData)}catch(error){showStatus(error.message||'Devido ao nível de segurança do seu site, não foi possível gerar um diagnóstico automatizado. Caso queira uma avaliação, nos contate pelo Whatsapp.','error');resultSection.classList.remove('visible')}finally{setLoading(false)}}
+async function submitDiagnostic(e){e.preventDefault();hideStatus();const normalizedUrl=normalizeUrl(siteUrlInput.value),email=leadEmailInput.value.trim();if(!isValidDomain(normalizedUrl)){showStatus('Digite um domínio válido. Exemplo: empresa.com.br','error');return}setLoading(true);showStatus('Realizando a análise do seu site. Por favor, aguarde alguns instantes...','');const payload={url:normalizedUrl,email:email||'',source:'diagnostico-xgreat-html',page:window.location.href,submittedAt:new Date().toISOString()};try{const response=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});let data={};const textResponse=await response.text();try{data=textResponse?JSON.parse(textResponse):{}}catch(e){data={message:textResponse.substring(0,150)}}if(!response.ok||data?.success===false||(!data?.score&&!data?.aiReport&&!data?.level)){throw new Error('Não foi possível concluir a triagem automática. Pode haver indisponibilidade da ferramenta ou bloqueio de acesso ao site; isso não comprova um problema no seu negócio. Tente novamente mais tarde ou conheça o Check-up manual.')}const finalData={...data,url:data.url||normalizedUrl,email:data.email||email};showStatus('Diagnóstico recebido com sucesso.','success');renderResult(finalData)}catch(error){showStatus(error.message||'Não foi possível concluir a triagem automática. Pode haver indisponibilidade da ferramenta ou bloqueio de acesso ao site; isso não comprova um problema no seu negócio. Tente novamente mais tarde ou conheça o Check-up manual.','error');resultSection.classList.remove('visible')}finally{setLoading(false)}}
 function clearForm(){form.reset();hideStatus();resultSection.classList.remove('visible');lastResult=null}
-function downloadResultTxt(){if(!lastResult)return;const text=buildTxt(lastResult),blob=new Blob([text],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),site=(lastResult.url||'diagnostico').replace(/^https?:\/\//,'').replace(/[^a-z0-9.-]/gi,'-'),a=document.createElement('a');a.href=url;a.download=`diagnostico-xgr-${site}.txt`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}
+function downloadResultTxt(){if(!lastResult)return;const text=buildTxt(lastResult),blob=new Blob([text],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),site=(lastResult.url||'diagnostico').replace(/^https?:\/\//,'').replace(/[^a-z0-9.-]/gi,'-'),a=document.createElement('a');a.href=url;a.download=`triagem-xgreat-${site}.txt`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}
 form.addEventListener('submit',submitDiagnostic);clearBtn.addEventListener('click',clearForm);downloadTxt.addEventListener('click',downloadResultTxt);copyDiagnosis.addEventListener('click',async()=>{if(!lastResult)return;try{await navigator.clipboard.writeText(buildTxt(lastResult));copyDiagnosis.textContent='Diagnóstico copiado';setTimeout(()=>copyDiagnosis.textContent='Copiar diagnóstico',1700)}catch(error){copyDiagnosis.textContent='Falhou ao copiar';setTimeout(()=>copyDiagnosis.textContent='Copiar diagnóstico',1700)}});toggleRaw.addEventListener('click',()=>{rawResult.classList.toggle('visible');toggleRaw.textContent=rawResult.classList.contains('visible')?'Ocultar JSON':'Ver JSON'});
 </script>
 <div class="social-dock" aria-label="Canais de contato">
