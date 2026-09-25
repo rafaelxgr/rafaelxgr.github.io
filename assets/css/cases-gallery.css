@@ -1,4 +1,12 @@
 /* Keep complete portfolio artwork visible, including portrait mockups. */
+body.page-projetos .case-xerife { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; margin-bottom: 24px; padding: clamp(20px, 3vw, 36px); border: 1px solid rgba(233,189,77,.35) !important; }
+body.page-projetos .case-xerife .case-thumb img { aspect-ratio: auto; height: auto; }
+body.page-projetos .case-xerife h3 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin: 16px 0; }
+body.page-projetos .case-xerife h4 { margin: 22px 0 8px; color: #ffe08a; }
+body.page-projetos .case-xerife p { line-height: 1.65; }
+body.page-projetos .case-art-note { color: #97a6b7; font-size: .78rem; margin: 12px 0 0; }
+body.page-projetos .case-xerife__closing { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.1); color: #b9c6d3; }
+@media (max-width: 900px) { body.page-projetos .case-xerife { grid-template-columns: minmax(0, 1fr); gap: 20px; } }
 body.page-projetos .case-thumb { width: 100%; }
 body.page-projetos .case-thumb img { object-fit: contain; background: #050814; }
 body.page-projetos .case-thumb:hover img { transform: none; }
