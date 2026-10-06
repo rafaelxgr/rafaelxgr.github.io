@@ -22,9 +22,9 @@
       panel.appendChild(link.cloneNode(true));
     });
 
-    if (!panel.querySelector('a[href="contato.html"]')) {
+    if (!panel.querySelector('a[href="contato.html"], a[href="/contato.html"]')) {
       const contact = document.createElement('a');
-      contact.href = 'contato.html';
+      contact.href = '/contato.html';
       contact.textContent = 'Contato';
       panel.appendChild(contact);
     }
@@ -153,7 +153,7 @@
     <div class="cookie-consent__copy">
       <strong>Sua privacidade importa</strong>
       <p>Usamos cookies de medição e marketing para entender os acessos e melhorar o site. Você pode aceitar ou recusar sem prejudicar a navegação.</p>
-      <a href="cookies.html">Política de Cookies</a>
+      <a href="/cookies.html">Política de Cookies</a>
     </div>
     <div class="cookie-consent__actions">
       <button class="cookie-consent__button" type="button" data-cookie-choice="rejected">Recusar</button>
