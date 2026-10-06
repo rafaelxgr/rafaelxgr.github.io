@@ -1,4 +1,4 @@
-name: Patch CRM menu
+name: Validate site navigation
 
 on:
   push:
@@ -7,49 +7,61 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  patch-crm-menu:
+  validate-navigation:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Patch files
+      - name: Check institutional navigation links
         run: |
           python3 <<'PY'
+          from html.parser import HTMLParser
           from pathlib import Path
+          from urllib.parse import urlsplit, unquote
 
-          crm_link = '    <a href="crm-comercial.html">CRM Comercial</a>\n'
-          targets = [Path('diagnostico-xgreat.html'), Path('projetos.html')]
+          class HeaderLinks(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.in_header = False
+                  self.links = []
 
-          changed = False
-          for path in targets:
-              text = path.read_text(encoding='utf-8')
-              if 'href="crm-comercial.html"' in text:
-                  continue
-              marker = '    <a href="automacao.html">Soluções</a>\n'
-              if marker not in text:
-                  raise SystemExit(f'Marcador não encontrado em {path}')
-              text = text.replace(marker, marker + crm_link, 1)
-              path.write_text(text, encoding='utf-8')
-              changed = True
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == 'header':
+                      self.in_header = True
+                  if self.in_header and tag == 'a' and attrs.get('href'):
+                      self.links.append(attrs['href'])
 
-          if changed:
-              print('CRM menu patched.')
-          else:
-              print('No changes needed.')
+              def handle_endtag(self, tag):
+                  if tag == 'header':
+                      self.in_header = False
+
+          pages = ['index.html', 'automacao.html', 'planos.html', 'projetos.html',
+                   'sobre.html', 'contato.html', 'checkup-digital.html',
+                   'orcamento.html', 'crm-comercial.html', 'diagnostico-xgreat.html',
+                   'privacidade.html', 'cookies.html', 'food/index.html']
+          root = Path.cwd()
+          errors = []
+          for name in pages:
+              page = root / name
+              parser = HeaderLinks()
+              parser.feed(page.read_text(encoding='utf-8'))
+              if not parser.links:
+                  errors.append(f'{name}: header navigation not found')
+              for href in parser.links:
+                  url = urlsplit(href)
+                  if url.scheme or url.netloc or not url.path:
+                      continue
+                  target = root / unquote(url.path.lstrip('/')) if url.path.startswith('/') else page.parent / unquote(url.path)
+                  if target.is_dir():
+                      target = target / 'index.html'
+                  if not target.is_file():
+                      errors.append(f'{name}: missing target {href}')
+          if errors:
+              raise SystemExit('\n'.join(errors))
+          print(f'Navigation targets verified in {len(pages)} pages.')
           PY
-
-      - name: Commit patch
-        run: |
-          if git diff --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add diagnostico-xgreat.html projetos.html
-          git commit -m "Corrige menu CRM em Diagnostico e Projetos"
-          git push
