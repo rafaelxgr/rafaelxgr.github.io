@@ -33,19 +33,22 @@
 .food-method .os-card { border-top: 2px solid rgba(233,189,77,.5); }
 .food-output { display: block; margin-top: 24px; color: #e2c577; font-size: .82rem; font-weight: 500; line-height: 1.6; }
 .page-food .plan-card .plan-price { font-size: clamp(1.8rem,2.8vw,2.25rem); }
-.food-case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; gap: 48px; }
+.food-cases { display: grid; gap: 20px; }
+.food-case { display: grid; grid-template-columns: 180px minmax(0,1fr); align-items: center; gap: 36px; padding: 30px; border: 1px solid rgba(233,189,77,.22); border-radius: 18px; background: linear-gradient(135deg,rgba(12,26,39,.8),rgba(6,14,24,.7)); }
 .food-case > * { min-width: 0; }
-.food-case__art { display: block; overflow: hidden; border: 1px solid rgba(233,189,77,.3); border-radius: 16px; background: #050912; text-decoration: none; }
-.food-case__art img { display: block; width: 100%; height: auto; object-fit: contain; }
-.food-case__art span { display: block; padding: 12px 16px; color: var(--xg-cyan); font-size: .8rem; border-top: 1px solid var(--xg-line); }
-.food-case > div > .food-case__note { margin: 12px 0 0; font-size: .76rem; line-height: 1.6; color: #97a6b7; }
-.food-case h2 { margin: 18px 0; font: 700 clamp(2.4rem,4vw,3.8rem)/1.08 "IBM Plex Sans Condensed",sans-serif; letter-spacing: -.035em; }
-.food-case > div > p { color: var(--xg-muted); line-height: 1.8; max-width: 650px; }
-.food-case__scope { margin: 26px 0; border-left: 1px solid rgba(233,189,77,.4); padding: 12px 0 12px 35px; }
-.food-case__scope ul { margin: 20px 0; padding: 0; list-style: none; }
-.food-case__scope li { padding: 8px 0; color: #cad5e0; font-size: .95rem; }
-.food-case__scope li::before { content: "↗"; color: var(--xg-cyan); margin-right: 12px; }
-.food-case__scope > p { font-size: .8rem; margin-bottom: 0; }
+.food-case__logo { display: block; overflow: hidden; border-radius: 14px; border: 1px solid rgba(255,255,255,.1); }
+.food-case__logo img { display: block; width: 100%; height: auto; object-fit: contain; }
+.food-case__location { color: var(--xg-cyan); font: 500 .7rem "IBM Plex Mono",monospace; }
+.food-case h3 { margin: 8px 0; font: 700 clamp(1.5rem,2.5vw,2rem)/1.2 "IBM Plex Sans Condensed",sans-serif; letter-spacing: -.02em; }
+.food-case__status { color: #a9b7c4; font-size: .74rem; }
+.food-case__summary { color: var(--xg-muted); line-height: 1.65; margin: 14px 0; font-size: .94rem; }
+.food-case__platforms { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; padding: 0; margin: 0 0 18px; }
+.food-case__platforms li { padding: 5px 9px; border: 1px solid rgba(57,215,195,.18); border-radius: 6px; color: #b8e9e3; background: rgba(57,215,195,.035); font-size: .73rem; line-height: 1.5; }
+.food-case__deliveries { padding: 0; margin: 0; list-style: none; display: grid; gap: 7px; }
+.food-case__deliveries li { position: relative; padding-left: 18px; color: #c1ceda; font-size: .88rem; line-height: 1.6; }
+.food-case__deliveries li::before { content: "↗"; position: absolute; left: 0; color: var(--xg-cyan); }
+.food-case__actions { margin-top: 20px; }
+.food-case__actions .os-btn { font-size: .85rem; padding: 10px 16px; }
 .food-faq { display: grid; grid-template-columns: 1fr; gap: 12px; max-width: 1040px; }
 .food-faq summary { cursor: pointer; font-weight: 600; line-height: 1.5; }
 .food-faq details[open] summary { color: var(--xg-gold-soft); margin-bottom: 18px; }
@@ -78,7 +81,7 @@
  .food-hero h1 { max-width: 700px; font-size: clamp(3rem,7vw,4.8rem); }
  .food-board { max-width: 650px; width: 100%; }
  .food-method { grid-template-columns: 1fr; }
- .food-case,.food-feature { grid-template-columns: 1fr; gap: 36px; }
+ .food-feature { grid-template-columns: 1fr; gap: 36px; }
  .food-channel-strip .os-shell { gap: 20px; }
 }
 @media (max-width:680px) {
@@ -96,6 +99,13 @@
  .food-channel-strip li { font-size: .86rem; }
  .food-feature { padding: 25px 20px; border-radius: 16px; }
  .food-feature .os-kicker { font-size: .63rem; }
- .food-case__scope { padding-left: 22px; }
+ .food-case { grid-template-columns: 80px minmax(0,1fr); align-items: center; gap: 16px; padding: 20px; }
+ .food-case__details { display: contents; }
+ .food-case__details > :not(header) { grid-column: 1 / -1; margin: 0; }
+ .food-case__logo { grid-column: 1; grid-row: 1; border-radius: 10px; }
+ .food-case__details > header { grid-column: 2; grid-row: 1; }
+ .food-case h3 { font-size: 1.45rem; }
+ .food-case__location { font-size: .65rem; }
+ .food-case__status { font-size: .68rem; }
  .food-faq .os-card { padding: 22px 18px; }
 }
