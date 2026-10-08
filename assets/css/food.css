@@ -4,7 +4,7 @@
 .food-skip:focus { top: 12px; }
 .page-food :is(a, button, summary):focus-visible { outline: 2px solid var(--xg-cyan); outline-offset: 5px; }
 .page-food [id], #food-delivery, #food { scroll-margin-top: 100px; }
-#xerifes-do-frango { scroll-margin-top: 100px; }
+#xerifes-do-frango, .food-case[id] { scroll-margin-top: 100px; }
 .food-hero { min-height: 680px; gap: clamp(36px, 5vw, 80px); padding-top: 70px; }
 .food-hero h1 { font-size: clamp(3.4rem, 5vw, 5.2rem); line-height: 1.04; }
 .food-hero .os-lead { max-width: 660px; }
@@ -38,6 +38,12 @@
 .food-case > * { min-width: 0; }
 .food-case__logo { display: block; overflow: hidden; border-radius: 14px; border: 1px solid rgba(255,255,255,.1); }
 .food-case__logo img { display: block; width: 100%; height: auto; object-fit: contain; }
+.food-case__logo--compact { width: 100%; max-width: 150px; justify-self: center; }
+.food-case--project { align-items: start; margin-bottom: 24px; }
+.food-case__block { margin: 20px 0; }
+.food-case__block h4 { margin: 0 0 10px; color: #ffe08a; font-size: 1rem; }
+.food-case__block p, .food-case__closing { margin: 0; color: var(--xg-muted); font-size: .94rem; line-height: 1.65; }
+.food-case__closing { padding-top: 18px; border-top: 1px solid rgba(255,255,255,.1); }
 .food-case__location { color: var(--xg-cyan); font: 500 .7rem "IBM Plex Mono",monospace; }
 .food-case h3 { margin: 8px 0; font: 700 clamp(1.5rem,2.5vw,2rem)/1.2 "IBM Plex Sans Condensed",sans-serif; letter-spacing: -.02em; }
 .food-case__status { color: #a9b7c4; font-size: .74rem; }

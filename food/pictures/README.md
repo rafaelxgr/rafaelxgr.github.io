@@ -13,7 +13,7 @@ Pasta padrão: `food/pictures/`.
 
 ## Case completo
 
-- Manter a arte maior e a descrição detalhada em `projetos.html`.
+- Manter a descrição detalhada em `projetos.html`. Quando houver arte de apresentação, usá-la no case completo; a logo original também pode identificar o projeto.
 - Exibir a arte completa, sem cortar textos ou logotipos, com ampliação.
 - Incluir apenas resultados efetivamente medidos e identificar elementos visuais ilustrativos quando houver.
 
@@ -27,3 +27,11 @@ Preferir nomes simples sem espaços ou acentos, por exemplo `nome-do-cliente-log
 - Arte do case completo: `Case de Sucesso_ Xerife do Frango.png` (nome original preservado).
 - Página Food: `/food/#xerifes-do-frango`.
 - Case completo: `/projetos.html#xerifes-do-frango`.
+
+## Gelada Exxpress
+
+- Logo original: `LogoGeladaExp.jpg` (150 × 150 px; nome enviado preservado).
+- Página Food: `/food/#gelada-exxpress`.
+- Case completo: `/projetos.html#gelada-exxpress`.
+- Escopo atual: implantação assistida remota no 99Food e delivery próprio no Yooga.
+- Status: em andamento. Separar frentes de trabalho de entregas concluídas e resultados medidos ao atualizar o case.
