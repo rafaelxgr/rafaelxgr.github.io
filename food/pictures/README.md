@@ -31,8 +31,8 @@ Preferir nomes simples sem espaços ou acentos, por exemplo `nome-do-cliente-log
 ## Gelada Exxpress
 
 - Logo da entrada Food: `LogoGeladaExp.jpg` (150 × 150 px; nome enviado preservado).
-- Arte do case completo: `Case Gelada Exxpress em implantação.png` (nome enviado preservado).
+- Arte do case completo: `Case concluído_AdegaEXX.png` (nome enviado preservado).
 - Página Food: `/food/#gelada-exxpress`.
 - Case completo: `/projetos.html#gelada-exxpress`.
-- Escopo atual: implantação assistida remota no 99Food e delivery próprio no Yooga.
-- Status: em andamento. Separar frentes de trabalho de entregas concluídas e resultados medidos ao atualizar o case.
+- Escopo concluído: organização de campanhas e catálogo na 99Food, estruturação do delivery próprio no Yooga e revisão do canal Keeta.
+- Status: implantação concluída.
