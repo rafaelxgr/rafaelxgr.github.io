@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#050912"/>
@@ -13,11 +13,6 @@
       <stop stop-color="#e9bd4d" stop-opacity=".24"/>
       <stop offset="1" stop-color="#e9bd4d" stop-opacity="0"/>
     </radialGradient>
-    <clipPath id="imageClip"><rect x="825" y="65" width="310" height="500" rx="34"/></clipPath>
-    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
-      <stop stop-color="#050912"/>
-      <stop offset="1" stop-color="#050912" stop-opacity="0"/>
-    </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#cyan)"/>
@@ -25,8 +20,7 @@
   <path d="M0 1h1200M0 629h1200" stroke="#ffffff" stroke-opacity=".08"/>
 
   <g transform="translate(72 66)">
-    <rect width="48" height="48" rx="13" fill="#e9bd4d" fill-opacity=".12" stroke="#e9bd4d" stroke-opacity=".55"/>
-    <text x="24" y="34" fill="#ffe08a" font-family="Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">X</text>
+    <image xlink:href="../favicon.png" width="48" height="48"/>
     <text x="64" y="25" fill="#f6f8fb" font-family="Arial, sans-serif" font-size="25" font-weight="700">XGreat</text>
     <text x="64" y="45" fill="#97a6b7" font-family="monospace" font-size="11" letter-spacing="2">OPERATION SYSTEM</text>
   </g>
@@ -38,7 +32,5 @@
   <text x="72" y="470" fill="#b5c0cc" font-family="Arial, sans-serif" font-size="23">trabalhando juntos para captar, acompanhar e vender.</text>
   <text x="72" y="551" fill="#e9bd4d" font-family="monospace" font-size="19" font-weight="700">xgreat.com.br</text>
 
-  <image href="../logo-xgr.jpg" x="825" y="65" width="500" height="500" preserveAspectRatio="xMidYMid slice" clip-path="url(#imageClip)"/>
-  <rect x="825" y="65" width="120" height="500" fill="url(#fade)"/>
-  <rect x="825" y="65" width="310" height="500" rx="34" fill="none" stroke="#ffffff" stroke-opacity=".12"/>
+  <image xlink:href="../favicon.png" x="826" y="178" width="300" height="300"/>
 </svg>
