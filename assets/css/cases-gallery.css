@@ -22,3 +22,7 @@ body.page-projetos .modal__image[hidden] { display: none; }
 body.page-projetos .case-thumb:focus-visible,
 body.page-projetos .modal button:focus-visible,
 body.page-projetos .modal a:focus-visible { outline: 3px solid #39d7c3; outline-offset: 3px; }
+
+/* Complementary artwork belongs to the same GH case, at a smaller scale. */
+#gh-lanches-e-porcoes .case-gh__artwork { min-width: 0; }
+#gh-lanches-e-porcoes .case-gh__flyer { width: min(100%, 260px); margin: 24px auto 0; }
